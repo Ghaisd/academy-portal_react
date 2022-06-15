@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.site_title {
+  margin-top: 2rem;
+  margin-left: 9rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.nav__menu {
+  display: flex;
+  justify-content: center;
+}
+.nav__item {
+  margin: 0 4rem;
+  color: white;
+}
