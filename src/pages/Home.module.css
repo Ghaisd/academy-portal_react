@@ -29,9 +29,15 @@ header {
     cursor: pointer;
   }
 
-  .btn{
+  .btn_header{
     background: var(--color-primary);
     color: white;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 5%;
+    font-weight: 500;
+    transition: var(--transition);
+   
   }
   .btn:hover{
     background: transparent;

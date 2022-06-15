@@ -33,7 +33,7 @@ body{
 
 }
 
-.btn{
+/* .btn{
     display: inline-block;
     background: var(--color-danger);
     color: var(--color-black);
@@ -41,6 +41,6 @@ body{
     border: 1px solid transparent;
     font-weight: 500;
     transition: var(--transition);
-}
+} */
 
 

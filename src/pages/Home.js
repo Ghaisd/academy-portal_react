@@ -21,7 +21,7 @@ export default function Home() {
             kandidatene selv en helt unik mulighet til å slå seg opp i en
             karriere full av fremtidsmuligheter.
           </p>
-          <CustomLink to ="/Contact" className={`btn btn-danger ${styles.btn}`}>
+          <CustomLink to ="/Contact" className={`btn-primary ${styles.btn_header}`}>
             Bli med!
           </CustomLink>
         </div>
