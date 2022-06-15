@@ -1,0 +1,11 @@
+.link_contact{
+    list-style-type: none;
+}
+.link_contact a {
+    text-decoration: none;
+}
+.link_contact :hover {
+    color: grey;
+    transition: 0.3s;
+}
+
