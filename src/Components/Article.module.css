@@ -7,11 +7,9 @@
     grid-template-rows: auto 1fr auto;
     justify-items: center;
     width: 420px;
+    margin-top: 100px;
 }
-h2{
-    margin-left: 640px;
-    margin-bottom: 100px;
-}
+
     .article:hover {
         background: transparent;
         border-color: var(--color-primary);
