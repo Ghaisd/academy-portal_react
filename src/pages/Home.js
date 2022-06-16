@@ -1,3 +1,4 @@
+import Article from '../Components/Article';
 import Category from '../Components/Category';
 import CustomLink from '../Components/CustomLink';
 import styles from './Home.module.css'
@@ -10,13 +11,44 @@ let headerTextsCategory = [ "Kodespråk", "Problemløsning", "Samarbeid og kommu
     "En utviklerhverdag kjennetegnes også av noen metoder og prosesser som får hjulene til å gå rundt. I Academy prøver vi å snikinnføre noen prinsipper her og der, uten at teorien tar overhånd."
 ]
 let iconClassCategory = [ "bi bi-laptop", "bi bi-chat-dots-fill", "bi bi-people-fill", "bi bi-gear-fill"];
+/*****************************************/
+let articleComponentHeadline =
+[
 
+  "Demo Day vel overstått", "En homage til Erik", "Why I love .NET?"
+]
+
+let  articleComponentImage =
+[
+
+  "/images/En portal til Ikomm Academy.png", "/images/Homage til Erik.png" , "/images/dotnet.jpg"
+]
+
+let  articleComponentAuthor =
+    [
+
+      "Ghais", "Tor", "Argyro"
+  ]
+
+  let  articleComponentContent =
+[
+  "Det har etterhvert blitt en fin tradisjon med Demo Day, der Ikomm inviterer inn en rekke interesserte mennesker for å vise frem studentenes Case Study-prosjekter. Dette er prosjekter det har blitt jobbet med i en månede, og markerer både siste del av kursperioden, og siste dagen med Erik som kursholder. Etter dette er det praksis, og forberedelser til den, som står på menyen. Dagen bød på en rekke fine presentasjoner og tilogmed noen overraskelser, her har vi laget en liten oppsummering av de prosjektene som ble vist frem.",
+  "Erik har vært fantastisk med oss, så vi ønsket å være litt fantastiske tilbake. Her har vi laget en collage av gode minner som vi kaller for «En homage til Erik». Stykket er tonesatt av Kjetil Nordbye på Flygel og Kristian Enge på Tamburin.",
+  ".NET is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is a cross-platform successor to .NET Framework. The project is primarily developed by Microsoft employees by way of the .NET Foundation, and released under the MIT License.",
+]
 const Home = (props) => {
 
   const categoriesRendered = [];
   for (let i = 0; i < headerTextsCategory.length; i++) {
     categoriesRendered.push(<Category headerText={headerTextsCategory[i]} paragraphText={paragraphTextsCategory[i]}
       category__icon={iconClassCategory[i]}/>)
+  }
+
+  const articlesRendered = [];
+  for (let i = 0; i < articleComponentAuthor.length; i++) {
+    articlesRendered.push(<Article headline={articleComponentHeadline[i]} author={articleComponentAuthor[i]} articleContent={articleComponentContent[i]}
+    src={process.env.PUBLIC_URL + articleComponentImage[i]}/>)
+    
   }
 
   return (
@@ -78,6 +110,12 @@ const Home = (props) => {
         <div className={styles.categories__right}>           
            {categoriesRendered}
         </div>
+        <section className={styles.articles}>
+        <h2>Artikler/Nyheter</h2>
+        <div className={`${styles.container} ${styles.articles__container}`}>
+        {articlesRendered}
+        </div>
+        </section>
     </div>
 </section>
 </>
