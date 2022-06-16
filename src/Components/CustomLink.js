@@ -1,6 +1,7 @@
 import { Link} from "react-router-dom";
 import styles from "./CustomLink.module.css";
-export default function CustomLink({ to, children, ...props }) {
+
+ const CustomLink = ({ to, children, ...props }) => {
   return (
     <li   
     className={styles.link_contact}
@@ -11,3 +12,5 @@ export default function CustomLink({ to, children, ...props }) {
     </li>
   );
 }
+
+export default CustomLink;
