@@ -2,7 +2,9 @@ import Article from "../Components/Article";
 import Category from "../Components/Category";
 import CustomLink from "../Components/CustomLink";
 import Faq from "../Components/Faq";
+import Testimonial from "../Components/Testimonial";
 import styles from "./Home.module.css";
+
 
 let headerTextsCategory = [
   "Kodespråk",
@@ -63,6 +65,37 @@ let paragraphTextFaqs = [
   "Det er så klart ikke garantert at du vil ha en jobb med en gang etter kurset, men i de aller fleste tilfeller vi har sett, får våre deltagere jobb eller utvidet praksisperiode i bedriften de har hatt praksis i.",
 ];
 
+/*******************************************************************/
+// Testimonial component
+let imagesTestimonials = [
+  "/images/avatar1.png",
+  "/images/avatar2.png",
+  "/images/avatar3.png",
+  "/images/avatar4.png",
+  "/images/avatar5.png",
+];
+let namesTestimonials = [
+  "Tor André Pettersen",
+  "Kristian Enge",
+  "Marius Kristiansen",
+  "Nichlas Bergseter",
+  "Erik van Appeldoorn",
+];
+let rolesTestimonials = [
+  "Student 2022",
+  "Utviklersjef i Ikomm",
+  "Student 2021",
+  "Student 2019",
+  "Foreleser",
+];
+let paragraphTextTestimonials = [
+  "Det er et skikkelig tøft kurs, med utrolig mye man skal lære på utrolig kort tid, men bare man kommer seg gjennom det, har man lært seg fantastisk mye, skaffet seg nye venner, kontakter i flere IT-selskap, og lært om hvordan det er å jobbe som utvikler! Ekstremt lærerikt kurs!",
+  "Som en av initiativtakerne til programmet har det vært skikkelig kult å se hvor bra det faktisk har blitt. Vi har lært mye på veien og gjort endringer underveis, og for oss rundt er det ingen tvil om at det krever mye ressurser å kjøre et sånt opplegg, både før, underveis, og etterpå. Fasiten er allikevel klar, vårt utviklerteam er i dag i mye bedre skikk på grunn av Ikomm Academy, så for oss, Ikomm og forhåpentligvis kundene våre er det helt uvurderlig.",
+  " Veldig tøft kurs, lærte utrolig mye! Ga meg også en for i døra til Ikomm, hvor jeg nå jobber som utvikler!",
+  "Glad for at jeg fikk bli med på kurset her, det lærte meg mye og ga meg en jobb hos Ikomm. Det er også veldig kult å følge med på nye deltagere, og se hvor mange flinke folk vi finner hvert år.",
+  "Helt fantastisk å få muligheten til å trene opp så mange deltagere til å bli fullverdige utviklere! En kjempesjanse for deltagerne, og en super ressurs for Ikomm og de deltagende bedriftene.",
+];
+
 const Home = (props) => {
   const categoriesRendered = [];
   for (let i = 0; i < headerTextsCategory.length; i++) {
@@ -93,6 +126,18 @@ const Home = (props) => {
       <Faq
         headerText={headerTextsFaqs[i]}
         paragraphText={paragraphTextFaqs[i]}
+      />
+    );
+  }
+
+  const testimonialsRendered = [];
+  for (let i = 0; i < 3; i++) {
+    testimonialsRendered.push(
+      <Testimonial
+        imageLink={process.env.PUBLIC_URL + imagesTestimonials[i]}
+        name={namesTestimonials[i]}
+        role={rolesTestimonials[i]}
+        paragraphText={paragraphTextTestimonials[i]}
       />
     );
   }
@@ -180,15 +225,21 @@ const Home = (props) => {
         </div>
       </section>
 
-    {/****************************************FAQs************************************************************* */}
+      {/****************************************FAQs************************************************************* */}
 
-    <section className={styles.faqs}>
-    <h2>Frequently Asked Questions</h2>
-    <div className={`${styles.container} ${styles.faqs__container}`}>
-      {faqsRendered}
-    </div>
-</section>
-
+      <section className={styles.faqs}>
+        <h2>Frequently Asked Questions</h2>
+        <div className={`${styles.container} ${styles.faqs__container}`}>
+          {faqsRendered}
+        </div>
+      </section>
+      {/****************************************Testimonials************************************************************* */}
+      <section
+        className={`${styles.container} ${styles.testimonials__container} `}
+      >
+        <h2>Testimonials</h2>
+        {testimonialsRendered}
+      </section>
     </>
   );
 };
