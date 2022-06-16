@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
 import CustomLink from "./Components/CustomLink";
 import styles from './Navbar.module.css'
+import { useScrollPosition } from "./hooks/useScrollPosition";
 
-// import { Children } from "react";
 
-export default function Navbar() {
+const Navbar = () => {
+
+
+  const scrollPosition = useScrollPosition();
+  let navClass =  (scrollPosition > 0) ? styles.nav+" "+ styles.scroll : styles.nav;
+  console.log(scrollPosition);
   return (
-    <div className={styles.nav}>
-      <Link to="/Home" className={styles.site_title}>
+    <div className={navClass}>
+      <Link to="/" className={styles.site_title}>
         <h4>IKOMM ACADEMY</h4>
       </Link>
       <ul  className={styles.nav__menu}>
@@ -21,4 +26,6 @@ export default function Navbar() {
     </div>
   );
 }
+
+export default Navbar
 

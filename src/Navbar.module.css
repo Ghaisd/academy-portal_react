@@ -3,8 +3,13 @@
   justify-content: space-around;
   align-items: baseline;
   margin-bottom: 1rem;
+  position: fixed;
+  z-index: 100;
+  width : 100vw;
 }
-
+.scroll {
+  background: var(--color-primary);
+}
 .site_title {
   margin-top: 2rem;
   margin-left: 9rem;
@@ -37,3 +42,8 @@
         opacity: 0.7;
         background-color: darkgray;
     }
+
+h4:hover, .site_title:hover{
+    color: grey;
+    transition: var(--transition);
+}
