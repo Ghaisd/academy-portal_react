@@ -9,7 +9,6 @@ const Navbar = () => {
 
   const scrollPosition = useScrollPosition();
   let navClass =  (scrollPosition > 0) ? styles.nav+" "+ styles.scroll : styles.nav;
-  console.log(scrollPosition);
   return (
     <div className={navClass}>
       <Link to="/" className={styles.site_title}>
