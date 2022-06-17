@@ -57,16 +57,6 @@ const studentsGitAccounts = [
   "https://github.com/Tor-A-P",
 ];
 
-const studentsPerosnalSites = [
-  "https://irosnocodechallenge.carrd.co/",
-  "https://ghaisdahdouh.carrd.co/",
-  "http://khashayar.pythonanywhere.com/",
-  "https://lutpulla.carrd.co/",
-  "https://mohammadkellab.carrd.co/",
-  "https://steffen.id/journal",
-  "https://torpettersen.carrd.co/",
-];
-
 const About = () => {
 
   const achievementsRendered = [];
