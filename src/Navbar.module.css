@@ -43,7 +43,7 @@
         background-color: darkgray;
     }
 
-h4:hover, .site_title:hover{
+.navClass h4:hover, .site_title:hover{
     color: grey;
     transition: var(--transition);
 }

@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles.css"
 import { BrowserRouter } from 'react-router-dom';
 import Navbar from './Navbar';
+import { Footer } from './Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +13,7 @@ root.render(
     <BrowserRouter>
     <Navbar/>
     <App />
+    <Footer />
     </BrowserRouter>
   </React.StrictMode>
 );
