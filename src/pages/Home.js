@@ -5,7 +5,7 @@ import Faq from "../Components/Faq";
 import Testimonial from "../Components/Testimonial";
 import styles from "./Home.module.css";
 
-
+//isntead of let , always use const (as long as u not gonna change it)
 let headerTextsCategory = [
   "Kodespråk",
   "Problemløsning",
