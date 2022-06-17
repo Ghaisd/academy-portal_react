@@ -2,6 +2,8 @@ footer {
     background: var(--color-bg1);
     padding-top: 5rem;
     font-size: 0.9rem;
+    margin-top: 2rem;
+
 }
 
 .footer__container {

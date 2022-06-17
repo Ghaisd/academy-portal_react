@@ -3,8 +3,10 @@
   justify-content: space-around;
   align-items: baseline;
   margin-bottom: 1rem;
-  position: fixed;
+  /* position: fixed; */
+  position: sticky;
   z-index: 100;
+  top: 0;
   width : 100vw;
 }
 .scroll {
