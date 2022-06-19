@@ -13,7 +13,7 @@ export const Student = (props) => {
       <p>{props.smallInfo}</p>
     </div>
     <div className={styles['team__member-socials']}>
-      <CustomLink to="/About/@Name">
+      <CustomLink to={`/About/${props.name}`}>
         {" "}
         <i className={`bi bi-file-earmark-person`}></i>
       </CustomLink>
@@ -25,9 +25,6 @@ export const Student = (props) => {
         {" "}
         <i className={`bi bi-github`}></i>
       </a>
-      <CustomLink to="/About/@Name" className={`btn btn-primary align_btns`}>
-        More
-      </CustomLink>
     </div>
   </article>
       );

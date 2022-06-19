@@ -78,7 +78,8 @@ const About = () => {
         studentName={studentsNames[i]}
         smallInfo ={studentsSmallInfo[i]}
         gitAccount= {studentsGitAccounts[i]}
-
+        name={studentsNames[i].replace(/ .*/,'')}
+        id = {i+1}
       />
     );
   };

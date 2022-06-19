@@ -6,18 +6,12 @@ import Contact from "./pages/Contact";
 import Navbar from './Navbar'
 import Footer from './Footer'
 import {Route, Routes} from "react-router-dom"
-import { useState } from "react";
 import IndividualArticle from "./pages/IndividualArticle";
+import IndividualPersonalizedPage from "./pages/IndividualPersonalizedPage";
 
 const App = (props) => {
 
- const[article, setArticle]  = useState('');
- const[id, setId]  = useState('0');
-let getArticleId = (id) => {
-  setId(id)
-  console.log("FromParent");
 
-}
 
   return(
     
@@ -25,13 +19,14 @@ let getArticleId = (id) => {
     <Navbar/>
     <div>
       <Routes>
-        <Route path="/Home" element={<Home getArticleId={getArticleId}/>} />
+        <Route path="/Home" element={<Home/>} />
         <Route path="/" element={<Home/>} />
         <Route path="/Articles" element={<Articles/>} />
         <Route path="/About" element={<About/>} />
         <Route path="/AcademyTV" element={<AcademyTV/>} />
         <Route path="/Contact" element={<Contact/>} />
         <Route path="/Articles/:id" element={<IndividualArticle/>} />
+        <Route path="/about/:id" element={<IndividualPersonalizedPage/>} />
       </Routes>
     </div>
     <Footer />

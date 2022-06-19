@@ -4,7 +4,6 @@ import CustomLink from "../Components/CustomLink";
 import Faq from "../Components/Faq";
 import Testimonial from "../Components/Testimonial";
 import styles from "./Home.module.css";
-import {useState} from 'react'
 //isntead of let , always use const (as long as u not gonna change it)
 const headerTextsCategory = [
   "Kodespråk",
@@ -108,15 +107,7 @@ const Home = (props) => {
     );
   }
   
-  const [articleId, setArticleId] = useState(0);
-  const getArticleId = (id) => 
-  {
-    console.log('From Grand_child',)
-    setArticleId(id);
-  }
-  if (articleId > 0) {
-    props.getArticleId(articleId)
-  }
+ 
 
   const articlesRendered = [];
   for (let i = 0; i < articleComponentAuthor.length; i++) {
@@ -127,7 +118,6 @@ const Home = (props) => {
         articleContent={articleComponentContent[i]}
         src={process.env.PUBLIC_URL + articleComponentImage[i]}
         id={i+1}
-        getArticleId={getArticleId}
       />
     );
   }
