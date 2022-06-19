@@ -4,42 +4,42 @@ import CustomLink from "../Components/CustomLink";
 import Faq from "../Components/Faq";
 import Testimonial from "../Components/Testimonial";
 import styles from "./Home.module.css";
-
+import {useState} from 'react'
 //isntead of let , always use const (as long as u not gonna change it)
-let headerTextsCategory = [
+const headerTextsCategory = [
   "Kodespråk",
   "Problemløsning",
   "Samarbeid og kommunikasjon",
   "Metode og prosess",
 ];
-let paragraphTextsCategory = [
+const paragraphTextsCategory = [
   "Vi fokuserer på å bygge en grunnmur med C# og ASP.NET, med innslag av HTML/CSS og JavaScript. Etterhvert i kurset kan man spesialisere seg litt mer, og gjerne velge litt retning. Vi kombinerer forelesninger med oppgaver, mini-prosjekter og et større case study - og til slutt sitter man igjen med et ganske bredt erfaringsgrunnlag.",
   "Utvikling er mer enn noe annet fortløpende problemløsning, med Google som en bestevenn. Det krever god problemforståelse, og så er det ett eget lite håndverk å søke etter og vurdere mulige løsninger.",
   "Den største forskjellen når man går fra hobbytilværelse til en profesjonell utviklerhverdag, handler om at man inngår i et team, i en organisasjon, med kunder. Det stiller helt andre krav til både kommunikasjon og dokumentasjon.",
   "En utviklerhverdag kjennetegnes også av noen metoder og prosesser som får hjulene til å gå rundt. I Academy prøver vi å snikinnføre noen prinsipper her og der, uten at teorien tar overhånd.",
 ];
-let iconClassCategory = [
+const iconClassCategory = [
   "bi bi-laptop",
   "bi bi-chat-dots-fill",
   "bi bi-people-fill",
   "bi bi-gear-fill",
 ];
 /*****************************************/
-let articleComponentHeadline = [
+const articleComponentHeadline = [
   "Demo Day vel overstått",
   "En homage til Erik",
   "Why I love .NET?",
 ];
 
-let articleComponentImage = [
+const articleComponentImage = [
   "/images/En portal til Ikomm Academy.png",
   "/images/Homage til Erik.png",
   "/images/dotnet.jpg",
 ];
 
-let articleComponentAuthor = ["Ghais", "Tor", "Argyro"];
+const articleComponentAuthor = ["Ghais", "Tor", "Argyro"];
 
-let articleComponentContent = [
+const articleComponentContent = [
   "Det har etterhvert blitt en fin tradisjon med Demo Day, der Ikomm inviterer inn en rekke interesserte mennesker for å vise frem studentenes Case Study-prosjekter. Dette er prosjekter det har blitt jobbet med i en månede, og markerer både siste del av kursperioden, og siste dagen med Erik som kursholder. Etter dette er det praksis, og forberedelser til den, som står på menyen. Dagen bød på en rekke fine presentasjoner og tilogmed noen overraskelser, her har vi laget en liten oppsummering av de prosjektene som ble vist frem.",
   "Erik har vært fantastisk med oss, så vi ønsket å være litt fantastiske tilbake. Her har vi laget en collage av gode minner som vi kaller for «En homage til Erik». Stykket er tonesatt av Kjetil Nordbye på Flygel og Kristian Enge på Tamburin.",
   ".NET is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is a cross-platform successor to .NET Framework. The project is primarily developed by Microsoft employees by way of the .NET Foundation, and released under the MIT License.",
@@ -47,7 +47,7 @@ let articleComponentContent = [
 
 /*******************************************************************/
 
-let headerTextsFaqs = [
+const headerTextsFaqs = [
   "Hvem kan delta på Ikomm Academy?",
   "Hvor mange deltagere er det?",
   "Hva kreves av forkunnskaper?",
@@ -56,7 +56,7 @@ let headerTextsFaqs = [
   "Kan jeg få jobb etter kurset?",
 ];
 
-let paragraphTextFaqs = [
+const paragraphTextFaqs = [
   "Antallet deltagere varierer litt etter nivået på søkere, og hvor mange søkere vi har. Vi prøver å holde alle på omtrent samme kunnskapsnivå så langt det lar seg gjøre, så hvis vi har mange søkere på samme nivå, har vi flere deltagere. Forrige kurs (2022) hadde 7 deltagere.",
   "Du trenger ingen forkunnskaper for å bli med på Ikomm Academy!  Når det er sagt, så har vi alltid en gjennomgang/testing av potensielle deltagere, og det er klart kurset vil være enklere for de som allerede kan litt, men alle kan lære!",
   "Du trenger ingen forkunnskaper for å bli med på Ikomm Academy! Når det er sagt, så har vi alltid en gjennomgang/testing av potensielle deltagere, og det er klart kurset vil være enklere for de som allerede kan litt, men alle kan lære!",
@@ -67,28 +67,28 @@ let paragraphTextFaqs = [
 
 /*******************************************************************/
 // Testimonial component
-let imagesTestimonials = [
+const imagesTestimonials = [
   "/images/avatar1.png",
   "/images/avatar2.png",
   "/images/avatar3.png",
   "/images/avatar4.png",
   "/images/avatar5.png",
 ];
-let namesTestimonials = [
+const namesTestimonials = [
   "Tor André Pettersen",
   "Kristian Enge",
   "Marius Kristiansen",
   "Nichlas Bergseter",
   "Erik van Appeldoorn",
 ];
-let rolesTestimonials = [
+const rolesTestimonials = [
   "Student 2022",
   "Utviklersjef i Ikomm",
   "Student 2021",
   "Student 2019",
   "Foreleser",
 ];
-let paragraphTextTestimonials = [
+const paragraphTextTestimonials = [
   "Det er et skikkelig tøft kurs, med utrolig mye man skal lære på utrolig kort tid, men bare man kommer seg gjennom det, har man lært seg fantastisk mye, skaffet seg nye venner, kontakter i flere IT-selskap, og lært om hvordan det er å jobbe som utvikler! Ekstremt lærerikt kurs!",
   "Som en av initiativtakerne til programmet har det vært skikkelig kult å se hvor bra det faktisk har blitt. Vi har lært mye på veien og gjort endringer underveis, og for oss rundt er det ingen tvil om at det krever mye ressurser å kjøre et sånt opplegg, både før, underveis, og etterpå. Fasiten er allikevel klar, vårt utviklerteam er i dag i mye bedre skikk på grunn av Ikomm Academy, så for oss, Ikomm og forhåpentligvis kundene våre er det helt uvurderlig.",
   " Veldig tøft kurs, lærte utrolig mye! Ga meg også en for i døra til Ikomm, hvor jeg nå jobber som utvikler!",
@@ -107,6 +107,16 @@ const Home = (props) => {
       />
     );
   }
+  
+  const [articleId, setArticleId] = useState(0);
+  const getArticleId = (id) => 
+  {
+    console.log('From Grand_child',)
+    setArticleId(id);
+  }
+  if (articleId > 0) {
+    props.getArticleId(articleId)
+  }
 
   const articlesRendered = [];
   for (let i = 0; i < articleComponentAuthor.length; i++) {
@@ -116,10 +126,12 @@ const Home = (props) => {
         author={articleComponentAuthor[i]}
         articleContent={articleComponentContent[i]}
         src={process.env.PUBLIC_URL + articleComponentImage[i]}
+        id={i+1}
+        getArticleId={getArticleId}
       />
     );
   }
-
+ 
   const faqsRendered = [];
   for (let i = 0; i < headerTextsFaqs.length; i++) {
     faqsRendered.push(
@@ -143,6 +155,7 @@ const Home = (props) => {
   }
 
   return (
+
     /* ======================= HEADER ========================*/
     <>
       <header>

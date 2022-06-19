@@ -1,6 +1,7 @@
-import Article from '../Components/Article';
-import styles from './Articles.module.css'
+import styles from "./IndividualArticle.module.css";
+import {useParams} from 'react-router-dom'
 
+/*****************************************/
 
 const articleComponentHeadline = [
     "Demo Day vel overstått",
@@ -19,7 +20,15 @@ const articleComponentHeadline = [
     "/images/Breakdown Day.jpg",
     "/images/Trivia Night.gif",
   ];
-  
+  const articleAuthorImage = [
+    "/images/Ghais.jpg",
+    "/images/Tor.png",
+    "/images/iro.jpg",
+    "/images/Aksel.jpg",
+    "/images/Aksel.jpg",
+    "/images/Avatar2.png"
+
+  ];
   const articleComponentAuthor = ["Ghais", "Tor", "Argyro", "Aksel", "Aksel", "Kristian"];
   
   const articleComponentContent = [
@@ -31,33 +40,38 @@ const articleComponentHeadline = [
     "Vi prøvde et nytt konsept i årets introuke, og det var en tradisjonsrik allmennquiz til å avslutte ukens begivenheter. Quizmaster Aksel hadde ikke spart på konfekten, og det var en serie med tøffe spørsmål som ventet de tre lagene. Ekstra gledelig var det at vi fikk med Erlend og Jens Ole fra NAV, og mentor Michael fra Eidsiva, på begivenhetene. Her har vi nok skapt en ny tradisjon. Klikk deg inn for å se både spørsmålene, svarene, og resultatene. ",
   ];
 
+  
+  /*******************************************************************/
 
- 
+const IndividualArticle = () => {
+    const { id } = useParams();
+  
+  return(
+      <div className={styles.container}>
+    <img
+      className={styles.background_img}
+      src={[articleComponentImage[id-1]]}
+      alt="Article"
+    />
 
-const Articles = () => {
-
-     const articlesRendered = [];
-    for (let i = 0; i < articleComponentAuthor.length; i++) {
-      articlesRendered.push(
-        <Article
-          headline={articleComponentHeadline[i]}
-          author={articleComponentAuthor[i]}
-          articleContent={articleComponentContent[i]}
-          src={process.env.PUBLIC_URL + articleComponentImage[i]}
-          id={i+1}
-        />
-      );
-      }
-      
-    return(       
-        <section className={styles.articles}>
-    <div className={`${styles.container} ${styles.articles__container}` }>
-    {articlesRendered}
+    <h2 id={styles.headline}> {articleComponentHeadline[id-1]}</h2>
+    <div className={styles["profile-container"]}>
+      <div className={styles.profile}>
+        <div className={styles["img-container"]}>
+          <img src={articleAuthorImage[id-1]} alt="Author" />
+        </div>
+        <div className={styles.text}>
+          <h3>{articleComponentAuthor[id-1]}</h3>
+          <p>May 18, 2022</p>
+        </div>
+      </div>
     </div>
-</section>
+    <div className={styles.content}>
+      <p>{articleComponentContent[id-1]}</p>
+    </div>
+  </div>
 
-    ) ;
+  );
 };
 
-
-export default Articles
+export default IndividualArticle;

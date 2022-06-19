@@ -2,15 +2,15 @@ import CustomLink from "./Components/CustomLink";
 import styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer>
       <div className={`${styles.container} ${styles.footer__container}`}>
         <div className={styles.footer__1}>
-        <Link to="/" className={styles.site_title}>
-        <h4>IKOMM ACADEMY</h4>
-      </Link>
-          
+          <Link to="/" className={styles.site_title}>
+            <h4>IKOMM ACADEMY</h4>
+          </Link>
+
           <p>Talent finnes overalt for den som leter.</p>
           <img
             className={styles.img_logo}
@@ -58,3 +58,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export default Footer;
