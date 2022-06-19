@@ -2,9 +2,9 @@ import styles from './Article.module.css'
 import CustomLink from './CustomLink';
 const Article = (props) => {
 
-
     return(
         <article className={styles.article}>
+         
         <div className={styles.article__Image}>
         <img src={props.src} alt="author"/> 
         </div>
@@ -15,7 +15,7 @@ const Article = (props) => {
                 {props.articleContent}
             </p>
         </div>
-         <CustomLink to="/Articles" className={`btn-danger ${styles.btn_article}`}>Les Mer</CustomLink> 
+         <CustomLink to={`/Articles/${props.id}`}className={`btn-danger ${styles.btn_article}`} >Les Mer</CustomLink> 
     </article>
     
     )
