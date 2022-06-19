@@ -65,7 +65,6 @@
     transition: var(--transition);
 }
 .team__member-socials i{
-    padding-left: 10px;
     color: white;
 }
 
@@ -76,7 +75,7 @@
 }
 
 .team__member-socials a {
-    padding: 0rem;
+    padding: 0 8px;
 
 }
 
