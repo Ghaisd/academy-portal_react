@@ -126,11 +126,7 @@ header {
  .categories_btn {
     margin-right: 2rem;
 }
-/*
-.categories_btn:hover {
-    background: transparent;
-    transition: var(--transition);
-} */
+
 /* ======================= POPULAR ARTICLES ========================*/
 
 
@@ -146,7 +142,7 @@ header {
 }
 
 .articles h2{
-    padding-left: 625px;
+    padding-left: 590px;
 }
 /* ======================= FAQS ========================*/
 .faqs {
@@ -167,7 +163,7 @@ header {
 .faqs h2{
     margin-bottom: 100px;
     padding-top: 100px;
-    padding-left: 450px;
+    padding-left: 380px;
 }
 
 /* ======================= TESTIMONIALS ========================*/
@@ -181,7 +177,7 @@ header {
 
 .testimonials__container h2 {
     padding-top: 70px;
-    padding-left: 850px;
+    padding-left: 800px;
 }
 
 /*  End of testimonials */
