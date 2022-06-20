@@ -6,7 +6,17 @@ import Testimonial from "../Components/Testimonial";
 import styles from "./Home.module.css";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Virtual,
+  // eslint-disable-next-line
+} from 'swiper';
+// eslint-disable-next-line
 //isntead of let , always use const (as long as u not gonna change it)
 const headerTextsCategory = [
   "Kodespråk",
@@ -249,14 +259,16 @@ const Home = (props) => {
     <h2>Testimonials</h2>
     <div className={`swiper-wrapper`}>
     <Swiper
+     modules={[Navigation, Pagination, Scrollbar, A11y, Virtual]}
       spaceBetween={50}
-      slidesPerView={2}>
+      slidesPerView={2}
+      navigation
+    scrollbar={{ draggable: true }}
+    pagination={{ clickable: true }}
+      >
         {testimonialsRendered}
         </Swiper>
     </div>
-        <div className={`swiper-pagination`}></div>
-    <div className={`swiper-button-prev`}></div>
-    <div className={`swiper-button-next`}></div>
       </section>
       </section>
     </>
