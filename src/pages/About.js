@@ -1,7 +1,7 @@
 import { Achievement } from "../Components/Achievement";
 import { Student } from "../Components/Student";
 import styles from "./About.module.css";
-
+import { useState, useEffect } from 'react';
 // Hard Coded data -- just for now -- before deployment
 
 const nrOfAchievements = ["2", "13", "10", "9"];
@@ -19,46 +19,51 @@ const finishedAchievements = [
 ];
 
 const studentsImages = [
+  "/images/Khashayar.jpg",
   "/images/iro.jpg",
   "/images/GhaisDahdouh.png",
-  "/images/Khashayar.jpg",
   "/images/Lutpullah.jpg",
-  "/images/Mohammad.jpg",
   "/images/Steffen4.png",
   "/images/Tor.png",
+  "/images/Mohammad.jpg",
 ];
 const studentsNames = [
   "Argyro Zaouti",
   "Ghais Dahdouh",
   "Khashayar Nariman",
   "Lutpulla Ekrem",
-  "Mohammad Kellab",
   "Steffen Wold",
   "Tor Pettersen",
 ];
 
-const studentsSmallInfo = [
-  "Mastergrad i infrastruktur og teknologi(Sjarmtrollet).",
-  "Deltidsstudent i programmering på NTNU(Ledertypen).",
-  "Erfaren hobby-programmerer, med lang fartstid i Python(Backend-king).",
-  "Selvlært utvikler og selenium-tester(Menneskerettighetsforkjemperen).",
-  "Grafisk artist og selvlært utvikler(The Brogrammer).",
-  "Frontend wizard med over 10 års fartstid i Javascript(Den kreative).",
-  "Kode-talent med skyhøyt toppnivå(Problemløseren). ",
-];
+// const studentsSmallInfo = [
+//   "Mastergrad i infrastruktur og teknologi(Sjarmtrollet).",
+//   "Deltidsstudent i programmering på NTNU(Ledertypen).",
+//   "Erfaren hobby-programmerer, med lang fartstid i Python(Backend-king).",
+//   "Selvlært utvikler og selenium-tester(Menneskerettighetsforkjemperen).",
+//   "Grafisk artist og selvlært utvikler(The Brogrammer).",
+//   "Frontend wizard med over 10 års fartstid i Javascript(Den kreative).",
+//   "Kode-talent med skyhøyt toppnivå(Problemløseren). ",
+// ];
 
-const studentsGitAccounts = [
-  "https://github.com/Iro83",
-  "https://github.com/Ghaisd",
-  "https://github.com/kkhashayar",
-  "https://github.com/lutpullaekrem",
-  "https://github.com/medosteve",
-  "https://github.com/Nullcano",
-  "https://github.com/Tor-A-P",
-];
+// const studentsGitAccounts = [
+//   "https://github.com/Iro83",
+//   "https://github.com/Ghaisd",
+//   "https://github.com/kkhashayar",
+//   "https://github.com/lutpullaekrem",
+//   "https://github.com/medosteve",
+//   "https://github.com/Nullcano",
+//   "https://github.com/Tor-A-P",
+// ];
 
 const About = () => {
-
+  const [studentsFromApi, setStudentsFromApi] = useState('');
+// onMount
+useEffect(() => {
+  fetch("https://localhost:7045/api/user").then((res) => res.json()).then((res) => setStudentsFromApi(res)  
+  );
+  console.log(studentsFromApi.length)
+}, []);
   const achievementsRendered = [];
   for (let i = 0; i < nrOfAchievements.length; i++) {
     achievementsRendered.push(
@@ -71,25 +76,27 @@ const About = () => {
   };
 
    const studentsRendered = [];
+   if (studentsFromApi.length > 0)
   for (let i = 0; i < studentsNames.length; i++) {
     studentsRendered.push(
       <Student
-        src={process.env.PUBLIC_URL + studentsImages[i]}
-        studentName={studentsNames[i]}
-        smallInfo ={studentsSmallInfo[i]}
-        gitAccount= {studentsGitAccounts[i]}
-        name={studentsNames[i].replace(/ .*/,'')}
+        src={studentsFromApi[i].ProfileImage}
+        studentName={studentsFromApi[i].Name}
+        smallInfo ={studentsFromApi[i].ShortInfo}
+        gitAccount= {studentsFromApi[i].Github}
+         name={studentsNames[i].replace(/ .*/,'')}
         id = {i+1}
       />
     );
   };
+
 
   return (
     <>
 
     
 <section className={styles.team}>
-        <h2>Årets kull</h2>
+        <h2 onClick={()=>console.log(studentsFromApi.length)}>Årets kull</h2>
         <div className={`${styles.container} ${styles.team__container}`}>
             {studentsRendered}
         </div>
