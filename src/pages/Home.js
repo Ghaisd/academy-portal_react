@@ -4,6 +4,19 @@ import CustomLink from "../Components/CustomLink";
 import Faq from "../Components/Faq";
 import Testimonial from "../Components/Testimonial";
 import styles from "./Home.module.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Virtual,
+  // eslint-disable-next-line
+} from 'swiper';
+// eslint-disable-next-line
 //isntead of let , always use const (as long as u not gonna change it)
 const headerTextsCategory = [
   "Kodespråk",
@@ -133,20 +146,21 @@ const Home = (props) => {
   }
 
   const testimonialsRendered = [];
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < namesTestimonials.length; i++) {
     testimonialsRendered.push(
+      <SwiperSlide>
       <Testimonial
         imageLink={process.env.PUBLIC_URL + imagesTestimonials[i]}
         name={namesTestimonials[i]}
         role={rolesTestimonials[i]}
         paragraphText={paragraphTextTestimonials[i]}
-      />
+        />
+        </SwiperSlide>
     );
   }
 
   return (
 
-    /* ======================= HEADER ========================*/
     <>
       <header>
         <div className={`${styles.container} ${styles.header__container}`}>
@@ -240,8 +254,22 @@ const Home = (props) => {
       <section
         className={`${styles.container} ${styles.testimonials__container} `}
       >
-        <h2>Testimonials</h2>
+       
+        <section className={`container testimonials__container mySwiper`}>
+    <h2>Testimonials</h2>
+    <div className={`swiper-wrapper`}>
+    <Swiper
+     modules={[Navigation, Pagination, Scrollbar, A11y, Virtual]}
+      spaceBetween={50}
+      slidesPerView={2}
+      navigation
+    scrollbar={{ draggable: true }}
+    pagination={{ clickable: true }}
+      >
         {testimonialsRendered}
+        </Swiper>
+    </div>
+      </section>
       </section>
     </>
   );

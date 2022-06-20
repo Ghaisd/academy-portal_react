@@ -2,7 +2,7 @@ import styles from './Testimonial.module.css'
 
 const Testimonial = (props) => {
     return(
-        <article className={styles.testimonial}>
+        <article className={`${styles.testimonial} swiper-slide`}>
         <div className={styles.avatar}>
             <img src={props.imageLink} alt='writer'/>
         </div>
