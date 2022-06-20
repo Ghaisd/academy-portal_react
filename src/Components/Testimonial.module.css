@@ -27,8 +27,6 @@
     padding: 2rem;
     margin-top: 3rem;
     position: relative;
-    width: 1000px;
-    margin-left: 430px;
 }
 
     .testimonial__body::before {
@@ -42,6 +40,7 @@
         top: -1.5rem;
         transform: rotate(45deg);
     }
+
 
 .avatar img {
     width: 100%;
