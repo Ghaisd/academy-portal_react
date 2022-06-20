@@ -32,8 +32,9 @@
 
              .profile-container .profile .img-container {
                 width: 6rem;
-                height: 6rem;
+                height: rem;
                 border: 1px groove;
+                margin-bottom: 12px;
             }
 
              .profile-container .profile .text {
@@ -50,7 +51,10 @@
     margin-left: 6px;
     
 }
-
+.content {
+    font-size: 2rem;
+    padding: 0 .5rem;
+}
  p {
     color: white;
     margin: 1rem 0;
