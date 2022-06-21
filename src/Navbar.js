@@ -20,7 +20,7 @@ const Navbar = () => {
         <CustomLink className={styles.nav__item} to="/About">Kandidatene</CustomLink>
         <CustomLink className={styles.nav__item} to="/AcademyTV">Academy TV</CustomLink>
         <CustomLink className={styles.nav__item} to="/Contact">Kontaktinfo</CustomLink>
-        <CustomLink className={`${styles.nav__item} ${styles.btn_login}`} to="/Login">Logg inn</CustomLink>
+        <CustomLink className={`${styles.nav__item} ${styles.btn_login}`} to="/#">Logg inn</CustomLink>
       </ul>
     </div>
   );
