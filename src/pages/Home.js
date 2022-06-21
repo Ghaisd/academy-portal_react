@@ -15,10 +15,8 @@ import {
   Scrollbar,
   A11y,
   Virtual,
-  // eslint-disable-next-line
 } from "swiper";
-// eslint-disable-next-line
-//isntead of let , always use const (as long as u not gonna change it)
+
 const headerTextsCategory = [
   "Kodespråk",
   "Problemløsning",
@@ -37,26 +35,6 @@ const iconClassCategory = [
   "bi bi-people-fill",
   "bi bi-gear-fill",
 ];
-/*****************************************/
-// const articleComponentHeadline = [
-//   "Demo Day vel overstått",
-//   "En homage til Erik",
-//   "Why I love .NET?",
-// ];
-
-// const articleComponentImage = [
-//   "/images/En portal til Ikomm Academy.png",
-//   "/images/Homage til Erik.png",
-//   "/images/dotnet.jpg",
-// ];
-
-// const articleComponentAuthor = ["Ghais", "Tor", "Argyro"];
-
-// const articleComponentContent = [
-//   "Det har etterhvert blitt en fin tradisjon med Demo Day, der Ikomm inviterer inn en rekke interesserte mennesker for å vise frem studentenes Case Study-prosjekter. Dette er prosjekter det har blitt jobbet med i en månede, og markerer både siste del av kursperioden, og siste dagen med Erik som kursholder. Etter dette er det praksis, og forberedelser til den, som står på menyen. Dagen bød på en rekke fine presentasjoner og tilogmed noen overraskelser, her har vi laget en liten oppsummering av de prosjektene som ble vist frem.",
-//   "Erik har vært fantastisk med oss, så vi ønsket å være litt fantastiske tilbake. Her har vi laget en collage av gode minner som vi kaller for «En homage til Erik». Stykket er tonesatt av Kjetil Nordbye på Flygel og Kristian Enge på Tamburin.",
-//   ".NET is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is a cross-platform successor to .NET Framework. The project is primarily developed by Microsoft employees by way of the .NET Foundation, and released under the MIT License.",
-// ];
 
 /*******************************************************************/
 

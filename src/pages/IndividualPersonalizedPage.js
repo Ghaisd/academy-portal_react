@@ -5,23 +5,14 @@ const IndividualPersonalizedPage = () => {
   const { id } = useParams();
   const [studentsFromApi, setstudentsFromApi] = useState('');
   const [index, setIndex] = useState(0);
-  const studentsImages = [
-    "/images/Khashayar.jpg",
-    "/images/GhaisDahdouh.png",
-    "/images/iro.jpg",
-    "/images/Lutpullah.jpg",
-    "/images/Mohammad.jpg",
-    "/images/Steffen4.png",
-    "/images/Tor.png",
-  ];
   const studentsNames = [
-    "Khashayar Nariman",
     "Argyro Zaouti",
     "Ghais Dahdouh",
+    "Khashayar Nariman",
     "Lutpulla Ekrem",
+    "Mohammad Kellab",
     "Steffen Wold",
     "Tor Pettersen",
-    "Mohammad Kellab",
   ];
    // onMount
    useEffect(() => {
@@ -34,27 +25,6 @@ const IndividualPersonalizedPage = () => {
     );
   }, []);
 
-
- 
-  // const studentsSmallInfo = [
-  //   "Mastergrad i infrastruktur og teknologi(Sjarmtrollet).",
-  //   "Deltidsstudent i programmering på NTNU(Ledertypen).",
-  //   "Erfaren hobby-programmerer, med lang fartstid i Python(Backend-king).",
-  //   "Selvlært utvikler og selenium-tester(Menneskerettighetsforkjemperen).",
-  //   "Grafisk artist og selvlært utvikler(The Brogrammer).",
-  //   "Frontend wizard med over 10 års fartstid i Javascript(Den kreative).",
-  //   "Kode-talent med skyhøyt toppnivå(Problemløseren). ",
-  // ];
-  
-  // const studentsGitAccounts = [
-  //   "https://github.com/Iro83",
-  //   "https://github.com/Ghaisd",
-  //   "https://github.com/kkhashayar",
-  //   "https://github.com/lutpullaekrem",
-  //   "https://github.com/medosteve",
-  //   "https://github.com/Nullcano",
-  //   "https://github.com/Tor-A-P",
-  // ];
   if(studentsFromApi.length > 0)
   return (
     <section className={styles.home} id="home">
@@ -75,7 +45,7 @@ const IndividualPersonalizedPage = () => {
             <i className="bi bi-github"></i>
           </a>
         </div>
-        <a href="#" className={styles.btn}>
+        <a href="/#" className={styles.btn}>
           Last ned CV
         </a>
       </div>
@@ -92,30 +62,3 @@ const IndividualPersonalizedPage = () => {
 
 export default IndividualPersonalizedPage;
 
-{
-  /* // {if (tempArticles.Count() > 0)
-    // {
-    //     <br>
-    //     <h2 id="header_articles_written">Artikler skrevet:</h2>
-    //     <br>
-    // }
-    // <div>
-    //     <div id="list_articles_written">
-    //         @foreach (var article in tempArticles)
-    //         {
-    //             <ul>
-    //                 <li>
-    //                     <h3 className="underline">
-    //                         <em>
-    //                             <a Href="Articles/@article.Id" Typo="Typo.body5" id="article_written">
-    //                                 @article.Title
-    //                             </a>
-
-    //                         </em>
-    //                     </h3>
-    //                 </li>
-    //             </ul>
-    //         }
-    //     </div>
-    // </div> */
-}

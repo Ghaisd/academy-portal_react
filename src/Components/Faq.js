@@ -2,13 +2,12 @@ import {useState} from 'react';
 import styles from './Faq.module.css'
 
 
-// let faqIconClassNames  = "bi bi-plus-square";
 let displayMode  = "d-none";
 
 
 const Faq= (props) => {
     const [faqIconClassNames, SetFaqIconClassNames] = useState('bi bi-plus-square');
-    let SetCssClasses = () =>{
+    const SetCssClasses = () =>{
         if (faqIconClassNames === "bi bi-plus-square")
         {
             SetFaqIconClassNames("bi bi-dash-square") ;
