@@ -32,7 +32,7 @@ const Home = (props) => {
   }
 
   const articlesRendered = [];
-  for (let i = 0; i < articlesFromApi.length / 2; i++) {
+  for (let i = 0; i < articlesFromApi.length/2; i++) {
     articlesRendered.push(
       <Article
         key={i}
@@ -40,7 +40,7 @@ const Home = (props) => {
         author={articlesFromApi[i].AuthorName}
         articleContent={articlesFromApi[i].Content}
         src={process.env.PUBLIC_URL + articlesFromApi[i].ArticleImage}
-        id={i + 1}
+        id={articlesFromApi[i].Id}
       />
     );
   }

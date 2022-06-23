@@ -19,17 +19,32 @@ useEffect(() => {
         author={articlesFromApi[i].AuthorName}
         articleContent={articlesFromApi[i].Content}
         src={process.env.PUBLIC_URL + articlesFromApi[i].ArticleImage}
-        id={i + 1}
+        id={articlesFromApi[i].Id}
         />
       );
       }
       
-    return(       
+      let loading = (
+        !articlesFromApi &&
+        <div className="loading">
+        <img
+          src={`${process.env.PUBLIC_URL}/images/loading.gif`}
+          alt="Loading"
+          />
+        <h4>Loading</h4>
+      </div>
+          );
+      
+    return(    
+      <>
+      {loading ||
         <section className={styles.articles}>
-    <div className={`${styles.container} ${styles.articles__container}` }>
-    {articlesRendered}
-    </div>
-</section>
+        <div className={`${styles.container} ${styles.articles__container}` }>
+        {articlesRendered}
+        </div>
+        </section>
+      }   
+      </>
 
     ) ;
 };

@@ -1,4 +1,4 @@
-import CustomLink from "./Components/CustomLink";
+import CustomLink from './CustomLink';
 import styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
 

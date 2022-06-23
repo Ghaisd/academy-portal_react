@@ -1,7 +1,7 @@
 import { Achievement } from "../Components/Achievement";
 import { Student } from "../Components/Student";
 import styles from "./About.module.css";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 // Hard Coded data -- just for now -- before deployment
 
 const nrOfAchievements = ["2", "13", "10", "9"];
@@ -18,25 +18,17 @@ const finishedAchievements = [
   "av disse jobber i dag innen IT",
 ];
 
-const studentsNames = [
-  "Argyro Zaouti",
-  "Ghais Dahdouh",
-  "Khashayar Nariman",
-  "Lutpulla Ekrem",
-  "Mohammad Kellab",
-  "Steffen Wold",
-  "Tor Pettersen",
-];
 
 
 const About = () => {
-  const [studentsFromApi, setStudentsFromApi] = useState('');
-// onMount
-useEffect(() => {
-  fetch("https://localhost:7045/api/allstudents").then((res) => res.json()).then((res) => setStudentsFromApi(res)  
-  );
-  console.log(studentsFromApi.length)
-});
+  const [studentsFromApi, setStudentsFromApi] = useState("");
+  // onMount
+  useEffect(() => {
+    fetch("https://localhost:7045/api/allstudents")
+      .then((res) => res.json())
+      .then((res) => setStudentsFromApi(res));
+    console.log(studentsFromApi.length);
+  });
   const achievementsRendered = [];
   for (let i = 0; i < nrOfAchievements.length; i++) {
     achievementsRendered.push(
@@ -46,33 +38,39 @@ useEffect(() => {
         finishedAchievement={finishedAchievements[i]}
       />
     );
-  };
+  }
 
-   const studentsRendered = [];
-   if (studentsFromApi.length > 0)
-  for (let i = 0; i < studentsFromApi.length; i++) {
-    studentsRendered.push(
-      <Student
-      key={i}
-        src={studentsFromApi[i].ProfileImage}
-        studentName={studentsFromApi[i].Name}
-        smallInfo ={studentsFromApi[i].ShortInfo}
-        gitAccount= {studentsFromApi[i].Github}
-         name={studentsNames[i].replace(/ .*/,'')}
-        id = {i+1}
-      />
+  const studentsRendered = [];
+  if (studentsFromApi.length > 0)
+    for (let i = 0; i < studentsFromApi.length; i++) {
+      studentsRendered.push(
+        <Student
+          key={i}
+          src={studentsFromApi[i].ProfileImage}
+          studentName={studentsFromApi[i].Name}
+          smallInfo={studentsFromApi[i].ShortInfo}
+          gitAccount={studentsFromApi[i].Github}
+        />
+      );
+    }
+
+    let loading = (
+      studentsRendered.length===0 &&
+        <div className={` ${styles.loading_gif}`}>
+        <img src={`${process.env.PUBLIC_URL}/images/loading.gif`} alt="Loading" />
+        <h4>Loading</h4>
+        </div>
     );
-  };
-
 
   return (
     <>
-<section className={styles.team}>
-        <h2 onClick={()=>console.log(studentsFromApi.length)}>Årets kull</h2>
+      <section className={styles.team}>
+        <h2 onClick={() => console.log(studentsFromApi.length)}>Årets kull</h2>
+        {loading}
         <div className={`${styles.container} ${styles.team__container}`}>
-            {studentsRendered}
+        {studentsRendered}
         </div>
-    </section>
+      </section>
 
       <section className={styles.about__achievements}>
         <div

@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "./Components/Navbar";
 import Home from "./pages/Home";
 import Articles from "./pages/Articles";
 import About from "./pages/About";
@@ -7,7 +7,7 @@ import AcademyTV from "./pages/AcademyTV";
 import Contact from "./pages/Contact";
 import IndividualArticle from "./pages/IndividualArticle";
 import IndividualPersonalizedPage from "./pages/IndividualPersonalizedPage";
-import Footer from "./Footer";
+import Footer from "./Components/Footer";
 
 const App = (props) => {
   return (
