@@ -58,24 +58,24 @@ const IndividualArticle = () => {
       <div className={styles.container}>
     <img
       className={styles.background_img}
-      src={[articlesFromApi[id-1].ArticleImage]}
+      src={[articlesFromApi[id].ArticleImage]}
       alt="Article"
     />
 
-    <h2 id={styles.headline}> {articlesFromApi[id-1].Title}</h2>
+    <h2 id={styles.headline}> {articlesFromApi[id].Title}</h2>
     <div className={styles["profile-container"]}>
       <div className={styles.profile}>
         <div className={styles["img-container"]}>
-          <img src={articlesFromApi[id-1].AuthorImage} alt="Author" />
+          <img src={articlesFromApi[id].AuthorImage} alt="Author" />
         </div>
         <div className={styles.text}>
-          <h3>{articlesFromApi[id-1].AuthorName}</h3>
+          <h3>{articlesFromApi[id].AuthorName}</h3>
           <p>May 18, 2022</p>
         </div>
       </div>
     </div>
     <div className={styles.content}>
-      <p>{articlesFromApi[id-1].Content}</p>
+      <p>{articlesFromApi[id].Content}</p>
     </div>
   </div>
 

@@ -50,9 +50,10 @@ useEffect(() => {
 
    const studentsRendered = [];
    if (studentsFromApi.length > 0)
-  for (let i = 0; i < studentsNames.length; i++) {
+  for (let i = 0; i < studentsFromApi.length; i++) {
     studentsRendered.push(
       <Student
+      key={i}
         src={studentsFromApi[i].ProfileImage}
         studentName={studentsFromApi[i].Name}
         smallInfo ={studentsFromApi[i].ShortInfo}
@@ -66,8 +67,6 @@ useEffect(() => {
 
   return (
     <>
-
-    
 <section className={styles.team}>
         <h2 onClick={()=>console.log(studentsFromApi.length)}>Årets kull</h2>
         <div className={`${styles.container} ${styles.team__container}`}>

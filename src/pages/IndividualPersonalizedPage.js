@@ -16,13 +16,13 @@ const IndividualPersonalizedPage = () => {
   ];
    // onMount
    useEffect(() => {
+     fetch("https://localhost:7045/api/allstudents").then((res) => res.json()).then((res) => setstudentsFromApi(res)  
+     );
     for (let i = 0; i < studentsNames.length; i++) {
       if (studentsNames[i].replace(/ .*/,'') === id){
         setIndex(i);
       }
     }
-    fetch("https://localhost:7045/api/user").then((res) => res.json()).then((res) => setstudentsFromApi(res)  
-    );
   }, []);
 
   if(studentsFromApi.length > 0)
