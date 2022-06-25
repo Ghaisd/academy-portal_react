@@ -1,12 +1,11 @@
-.link_contact{
-    list-style-type: none;
-    box-sizing: border-box;
+.link_contact {
+  list-style-type: none;
+  box-sizing: border-box;
 }
 .link_contact a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .link_contact :hover {
-    color: grey;
-    transition: var(--transition);
+  color: grey;
+  transition: var(--transition);
 }
-

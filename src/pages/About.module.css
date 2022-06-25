@@ -1,94 +1,43 @@
-/* =============== ACHIEVEMENTS =================*/
 .about__achievements {
-    margin: 50px 100px;
+  margin: 50px 100px;
 }
 
 .about__achievements-container {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    gap: 5rem;
+  display: grid;
+  grid-template-columns: 40% 40%;
+  gap: 12rem;
 }
 
 .about__achievements-right > p {
-    margin: 1.6rem 0 2.5rem;
+  margin: 1.6rem 0 2.5rem;
 }
 
 .achievements__cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
 }
 
-
-/* ******* TEAM ******** */
-.loading_gif{
-    top: 75%;
-    padding-left: 49%;
+/* ******* TEAM ******* */
+.ClimbingBoxLoader {
+  top: 75%;
+  padding-left: 49%;
 }
+
 .team {
-    background: var(--color-bg1);
-    box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.5);
+  background: var(--color-bg1);
+  box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.5);
 }
 
-.team h2 {
-    padding-left: 850px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+#students_header {
+  padding-left: 820px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .team__container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    padding-bottom: 50px;
-}
-
-/* ========================= MEDIA QUERIES
-(TABLETS) ================== */
-@media screen and (max-width: 1024px) {
-    .about__achievements {
-        margin-top: 2rem;
-    }
-
-    .about__achievements-container {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-
-    .about__achievements-left {
-        width: 80%;
-        margin: 0 auto;
-        
-    }
-
-    .team__container {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-    }
-
-    .team__member {
-        padding: 1rem;
-    }
-}
-
-/* ========================= MEDIA QUERIES
-(Mobile) ================== */
-@media screen and (max-width: 600px) {
-    .achievements__cards {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.7rem;
-    }
-
-    .team__container {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.7rem;
-    }
-
-    .team__member {
-        padding: 0;
-    }
-
-        .team__member p {
-            margin-bottom: 1.5rem;
-        }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding-bottom: 50px;
 }

@@ -10,6 +10,7 @@ import styles from "./Home.module.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import Loading from "../Components/Loading";
 
 const Home = (props) => {
   const [articlesFromApi, setarticlesFromApi] = useState("");
@@ -102,7 +103,7 @@ const Home = (props) => {
             width="504"
             allowfullscreen=""
             title="Embedded post"
-          ></iframe>
+            ></iframe>
         </div>
       </header>
 
@@ -139,12 +140,14 @@ const Home = (props) => {
         </div>
       </section>
       {/****************************************Articles{/**************************************** */}
-      <section className={styles.articles}>
-        <h2>Artikler/Nyheter</h2>
+        <h2 id={styles.articles_header}>Artikler/Nyheter</h2>
+      <Loading DataLength = {articlesFromApi.length}>
+        <section className={styles.articles}>
         <div className={`${styles.container} ${styles.articles__container}`}>
           {articlesRendered}
         </div>
-      </section>
+        </section>
+      </Loading>
 
       {/****************************************FAQs{/**************************************** */}
 

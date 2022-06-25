@@ -1,6 +1,7 @@
 import Article from '../Components/Article';
 import styles from './Articles.module.css'
 import { useState, useEffect } from 'react';
+import Loading from '../Components/Loading';
  
 const Articles = () => {
   const [articlesFromApi, setarticlesFromApi] = useState('');
@@ -24,27 +25,15 @@ useEffect(() => {
       );
       }
       
-      let loading = (
-        !articlesFromApi &&
-        <div className="loading">
-        <img
-          src={`${process.env.PUBLIC_URL}/images/loading.gif`}
-          alt="Loading"
-          />
-        <h4>Loading</h4>
-      </div>
-          );
       
     return(    
-      <>
-      {loading ||
+      <Loading DataLength={articlesFromApi.length}>
         <section className={styles.articles}>
         <div className={`${styles.container} ${styles.articles__container}` }>
         {articlesRendered}
         </div>
         </section>
-      }   
-      </>
+      </Loading>
 
     ) ;
 };

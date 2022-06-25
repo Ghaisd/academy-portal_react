@@ -1,6 +1,7 @@
 import styles from "./IndividualPersonalizedPage.module.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Loading from "../Components/Loading";
 const IndividualPersonalizedPage = () => {
   const { id } = useParams();
   const [studentFromApi, setStudentFromApi] = useState("");
@@ -11,20 +12,10 @@ const IndividualPersonalizedPage = () => {
       .then((res) => setStudentFromApi(res));
 
   }, [id]);
-  let loading = (
-    !studentFromApi &&
-    <div className="loading">
-        <img
-          src={`${process.env.PUBLIC_URL}/images/loading.gif`}
-          alt="Loading"
-          />
-        <h4>Loading</h4>
-      </div>
-          );
+  
   return (
-    <>
+    <Loading DataLength = {studentFromApi.length}>
     
-    {loading ||
       <section className={styles.home} id="home">
       <div className={styles["home-text"]}>
       <h3>Hallo, jeg er</h3>
@@ -53,8 +44,7 @@ const IndividualPersonalizedPage = () => {
           />
       </div>
     </section>
-  }
-  </>
+    </Loading>
   );
 };
 

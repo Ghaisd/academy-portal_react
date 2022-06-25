@@ -1,6 +1,7 @@
 import styles from "./IndividualArticle.module.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Loading from "../Components/Loading";
 
 const IndividualArticle = () => {
   const { id } = useParams();
@@ -11,8 +12,10 @@ const IndividualArticle = () => {
       .then((res) => res.json())
       .then((res) => setarticleFromApi(res));
   }, [id]);
-  if (articleFromApi)
+
+  
     return (
+      <Loading DataLength={articleFromApi.length}>
       <div className={styles.container}>
         <img
           className={styles.background_img}
@@ -35,6 +38,7 @@ const IndividualArticle = () => {
           <p>{articleFromApi.Content}</p>
         </div>
       </div>
+      </Loading>
     );
 };
 

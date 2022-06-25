@@ -82,9 +82,11 @@ header  {
 
 /* ======================= POPULAR ARTICLES ========================*/
 
-
+#articles_header{
+    padding-left: 760px;
+    padding-top: 180px;
+}
 .articles {
-    margin-top: 15rem;
     margin-left: 10rem;
 }
 
@@ -93,9 +95,7 @@ header  {
     grid-template-columns: repeat(3, 1fr);
 }
 
-.articles h2{
-    padding-left: 600px;
-}
+
 /* ======================= FAQS ========================*/
 .faqs {
     margin-top: 100px;
@@ -129,108 +129,3 @@ header  {
  
 /*  End of testimonials */
 
-
-@media screen and (max-width: 1024px) {
-
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 1.7rem;
-    }
-
-    h3 {
-        font-size: 1.4rem;
-    }
-
-    h4 {
-        font-size: 1.2rem;
-    }
-
-
-    /* ===================== HEADER  ===================== */
-    .container {
-        width: var(--container-width-md);
-    }
-    header {
-        height: 52vh;
-        margin-bottom: 4rem;
-    }
-
-    .header__container {
-        gap: 0;
-        padding-bottom: 3rem;
-    }
-
-    /* ===================== CATEGORIES  ===================== */
-    .categories {
-        height: auto;
-    }
-
-    .categories__container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .categories__left {
-        margin-right: 0;
-    }
-
-
-
-    /* ===================== FAQs ===================== */
-    .faqs__container {
-        grid-template-columns: 1fr;
-    }
-
-    .faq {
-        padding: 1.5rem;
-    }
-
-
-}
-
-@media screen and (max-width: 600px) {
-    .container {
-        width: var(--container-width-sm);
-    }
-
-    /* ===================== HEADER ===================== */
-    header {
-        height: 100vh;
-    }
-
-    .header__container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        margin-top: 0rem;
-    }
-
-    .header__left p {
-        margin-bottom: 1.3rem;
-    }
-
-    /* ===================== CATEGORIES ===================== */
-    .categories__right {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.7rem;
-    }
-
-    .category {
-        padding: 1rem;
-        border-radius: 1rem;
-    }
-
-    .category__icon {
-        margin-top: 4px;
-        display: inline-block;
-    }
-
-
-
-    /* ===================== TESTIMONIALS ===================== */
-    .testimonial__body {
-        padding: 1.2rem;
-    }
-}

@@ -2,8 +2,10 @@ import { Achievement } from "../Components/Achievement";
 import { Student } from "../Components/Student";
 import styles from "./About.module.css";
 import { useState, useEffect } from "react";
-// Hard Coded data -- just for now -- before deployment
+import Loading from "../Components/Loading";
 
+
+// Hard Coded data -- just for now -- before deployment
 const nrOfAchievements = ["2", "13", "10", "9"];
 const iconAchievements = [
   "bi bi-check-square-fill",
@@ -18,10 +20,9 @@ const finishedAchievements = [
   "av disse jobber i dag innen IT",
 ];
 
-
-
 const About = () => {
   const [studentsFromApi, setStudentsFromApi] = useState("");
+
   // onMount
   useEffect(() => {
     fetch("https://localhost:7045/api/allstudents")
@@ -53,25 +54,19 @@ const About = () => {
         />
       );
     }
-
-    let loading = (
-      studentsRendered.length===0 &&
-        <div className={` ${styles.loading_gif}`}>
-        <img src={`${process.env.PUBLIC_URL}/images/loading.gif`} alt="Loading" />
-        <h4>Loading</h4>
-        </div>
-    );
+    
 
   return (
     <>
+    
+        <h2 id={styles.students_header}>Årets kull</h2>
+    <Loading DataLength={studentsFromApi.length}>
       <section className={styles.team}>
-        <h2 onClick={() => console.log(studentsFromApi.length)}>Årets kull</h2>
-        {loading}
         <div className={`${styles.container} ${styles.team__container}`}>
-        {studentsRendered}
+          {studentsRendered}
         </div>
       </section>
-
+      </Loading>
       <section className={styles.about__achievements}>
         <div
           className={`${styles.container} ${styles["about__achievements-container"]}`}
@@ -79,7 +74,6 @@ const About = () => {
           <div className={styles["about__achievements-left"]}>
             <img
               src="/images/about_achievements.svg"
-              style={{ top: "10rem" }}
               alt="achievement"
             />
           </div>
@@ -106,7 +100,8 @@ const About = () => {
           </div>
         </div>
       </section>
-    </>
+     
+      </>
   );
 };
 
