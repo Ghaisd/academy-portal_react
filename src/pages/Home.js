@@ -1,22 +1,188 @@
 import { useEffect, useState } from "react";
-import Article from "../Components/Article";
+import { Navigation, Pagination, Scrollbar, A11y, Virtual } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Category from "../Components/Category";
+import Article from "../Components/Article";
 import CustomLink from "../Components/CustomLink";
 import Faq from "../Components/Faq";
 import Testimonial from "../Components/Testimonial";
 import styles from "./Home.module.css";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  Virtual,
-} from "swiper";
+import Loading from "../Components/Loading";
 
+const Home = (props) => {
+  const [articlesFromApi, setarticlesFromApi] = useState("");
+
+  useEffect(() => {
+    fetch("https://localhost:7045/api/article")
+      .then((res) => res.json())
+      .then((res) => setarticlesFromApi(res));
+  }, []);
+
+  const categoriesRendered = [];
+  for (let i = 0; i < headerTextsCategory.length; i++) {
+    categoriesRendered.push(
+      <Category
+        headerText={headerTextsCategory[i]}
+        paragraphText={paragraphTextsCategory[i]}
+        category__icon={iconClassCategory[i]}
+      />
+    );
+  }
+
+  const articlesRendered = [];
+  for (let i = 0; i < articlesFromApi.length/2; i++) {
+    articlesRendered.push(
+      <Article
+        key={i}
+        headline={articlesFromApi[i].Title}
+        author={articlesFromApi[i].AuthorName}
+        articleContent={articlesFromApi[i].Content}
+        src={process.env.PUBLIC_URL + articlesFromApi[i].ArticleImage}
+        id={articlesFromApi[i].Id}
+      />
+    );
+  }
+
+  const faqsRendered = [];
+  for (let i = 0; i < headerTextsFaqs.length; i++) {
+    faqsRendered.push(
+      <Faq
+        headerText={headerTextsFaqs[i]}
+        paragraphText={paragraphTextFaqs[i]}
+      />
+    );
+  }
+
+  const testimonialsRendered = [];
+  for (let i = 0; i < namesTestimonials.length; i++) {
+    testimonialsRendered.push(
+      <SwiperSlide>
+        <Testimonial
+          imageLink={process.env.PUBLIC_URL + imagesTestimonials[i]}
+          name={namesTestimonials[i]}
+          role={rolesTestimonials[i]}
+          paragraphText={paragraphTextTestimonials[i]}
+        />
+      </SwiperSlide>
+    );
+  }
+
+  return (
+    <>
+      <header>
+        <div className={`${styles.container} ${styles.header__container}`}>
+          <div className={styles.header__left}>
+            <h1>
+              Det handler om å gi flinke folk en sjanse, og å finne flinke folk
+              som tar den.
+            </h1>
+            <p className={styles.long__paragraph}>
+              Med Ikomm Academy har Ikomm i tett samarbeid med NAV Lillehammer
+              bevist at det fortsatt finnes ekte vinn-vinn-situasjoner. Kort
+              fortalt henter vi med Ikomm Academy kodetalenter ut av
+              NAV-systemet, skolerer dem i moderne utviklingsprinsipper og
+              kodespråk, og får dem ut i arbeid - enten hos oss eller hos noen
+              andre. Vi som arbeidsgiver får tak i kompetanse vi mangler, NAV
+              får folk ut i arbeid, samfunnet utnytter ressursene våre bedre, og
+              ikke minst får kandidatene selv en helt unik mulighet til å slå
+              seg opp i en karriere full av fremtidsmuligheter.
+            </p>
+            <CustomLink
+              to="/Contact"
+              className={`btn-secondary ${styles.btn_header}`}
+            >
+              Bli med!
+            </CustomLink>
+          </div>
+          <iframe
+            src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6876623560589283328"
+            height="540"
+            width="504"
+            allowfullscreen=""
+            title="Embedded post"
+            ></iframe>
+        </div>
+      </header>
+
+      {/*=========================================Categories=========================================*/}
+
+      <section className={styles.categories}>
+        <div className={`${styles.container} ${styles.categories__container}`}>
+          <div className={styles.categories__left}>
+            <h1>Hva fokuserer vi på i Ikomm Academy?</h1>
+            <p>
+              Vi tror det er viktig å ikke bare fokusere på tekniske
+              ferdigheter, når man skal løfte utviklertalenter opp fra et
+              hobby-nivå til et profesjonelt junior-nivå. Å jobbe som utvikler i
+              dag stiller stadig større krav til de mykere ferdighetene, i
+              tilegg til at man aldri blir utlært som utvikler.
+            </p>
+            <div className={styles.categories_btn_wrapper}>
+              <CustomLink
+                to="/About"
+                className={`btn-secondary ${styles.categories_btn}`}
+              >
+                Les mer
+              </CustomLink>
+              <CustomLink
+                to="/AcademyTV"
+                className={`btn-secondary ${styles.categories_btn}`}
+              >
+                AcademyTV{" "}
+              </CustomLink>
+            </div>
+          </div>
+
+          <div className={styles.categories__right}>{categoriesRendered}</div>
+        </div>
+      </section>
+      {/*--=========================================Article========================================= */}
+        <h2 id={styles.articles_header}>Artikler/Nyheter</h2>
+      <Loading DataLength = {articlesFromApi.length}>
+        <section className={styles.articles}>
+        <div className={`${styles.container} ${styles.articles__container}`}>
+          {articlesRendered}
+        </div>
+        </section>
+      </Loading>
+
+    {/*=========================================FAQs========================================= */}
+
+      <section className={styles.faqs}>
+        <h2>Frequently Asked Questions</h2>
+        <div className={`${styles.container} ${styles.faqs__container}`}>
+          {faqsRendered}
+        </div>
+      </section>
+    {/*=========================================Testimonials========================================= */}
+      <section
+        className={`${styles.container} ${styles.testimonials__container} `}
+      >
+        <section className={`container testimonials__container mySwiper`}>
+          <h2>Testimonials</h2>
+          <div className={`swiper-wrapper`}>
+            <Swiper
+              modules={[Navigation, Pagination, Scrollbar, A11y, Virtual]}
+              spaceBetween={50}
+              slidesPerView={2}
+              navigation
+              scrollbar={{ draggable: true }}
+              pagination={{ clickable: true }}
+            >
+              {testimonialsRendered}
+            </Swiper>
+          </div>
+        </section>
+      </section>
+    </>
+  );
+};
+
+
+/*******************************************************************/
 const headerTextsCategory = [
   "Kodespråk",
   "Problemløsning",
@@ -86,178 +252,5 @@ const paragraphTextTestimonials = [
   "Glad for at jeg fikk bli med på kurset her, det lærte meg mye og ga meg en jobb hos Ikomm. Det er også veldig kult å følge med på nye deltagere, og se hvor mange flinke folk vi finner hvert år.",
   "Helt fantastisk å få muligheten til å trene opp så mange deltagere til å bli fullverdige utviklere! En kjempesjanse for deltagerne, og en super ressurs for Ikomm og de deltagende bedriftene.",
 ];
-
-const Home = (props) => {
-  const [articlesFromApi, setarticlesFromApi] = useState('');
-  // onMount
-  useEffect(() => {
-    fetch("https://localhost:7045/api/article").then((res) => res.json()).then((res) => setarticlesFromApi(res)
-    
-    );
-  }, []);
-
-  const categoriesRendered = [];
-  for (let i = 0; i < headerTextsCategory.length; i++) {
-    categoriesRendered.push(
-      <Category
-        headerText={headerTextsCategory[i]}
-        paragraphText={paragraphTextsCategory[i]}
-        category__icon={iconClassCategory[i]}
-      />
-      
-    );
-  }
-
-  const articlesRendered = [];
-  for (let i = 0; i < articlesFromApi.length/2; i++) {
-    articlesRendered.push(
-      <Article
-      key={i}
-        headline={articlesFromApi[i].Title}
-        author={articlesFromApi[i].AuthorName}
-        articleContent={articlesFromApi[i].Content}
-        src={process.env.PUBLIC_URL + articlesFromApi[i].ArticleImage}
-        id={i + 1}
-      />
-    );
-  }
-
-  const faqsRendered = [];
-  for (let i = 0; i < headerTextsFaqs.length; i++) {
-    faqsRendered.push(
-      <Faq
-        headerText={headerTextsFaqs[i]}
-        paragraphText={paragraphTextFaqs[i]}
-      />
-    );
-  }
-
-  const testimonialsRendered = [];
-  for (let i = 0; i < namesTestimonials.length; i++) {
-    testimonialsRendered.push(
-      <SwiperSlide>
-        <Testimonial
-          imageLink={process.env.PUBLIC_URL + imagesTestimonials[i]}
-          name={namesTestimonials[i]}
-          role={rolesTestimonials[i]}
-          paragraphText={paragraphTextTestimonials[i]}
-        />
-      </SwiperSlide>
-    );
-  }
-
-  return (
-    <>
-      <header>
-        <div className={`${styles.container} ${styles.header__container}`}>
-          <div className={styles.header__left}>
-            <h1>
-              Det handler om å gi flinke folk en sjanse, og å finne flinke folk
-              som tar den.
-            </h1>
-            <p className={styles.long__paragraph}>
-              Med Ikomm Academy har Ikomm i tett samarbeid med NAV Lillehammer
-              bevist at det fortsatt finnes ekte vinn-vinn-situasjoner. Kort
-              fortalt henter vi med Ikomm Academy kodetalenter ut av
-              NAV-systemet, skolerer dem i moderne utviklingsprinsipper og
-              kodespråk, og får dem ut i arbeid - enten hos oss eller hos noen
-              andre. Vi som arbeidsgiver får tak i kompetanse vi mangler, NAV
-              får folk ut i arbeid, samfunnet utnytter ressursene våre bedre, og
-              ikke minst får kandidatene selv en helt unik mulighet til å slå
-              seg opp i en karriere full av fremtidsmuligheter.
-            </p>
-            <CustomLink
-              to="/Contact"
-              className={`btn-secondary ${styles.btn_header}`}
-            >
-              Bli med!
-            </CustomLink>
-          </div>
-
-          <div className="header__right">
-            <div className="header__right-image">
-              <iframe
-                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6876623560589283328"
-                height="540"
-                width="504"
-                allowfullscreen=""
-                title="Embedded post"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/*--=========================================Categories=========================================*/}
-
-      <section className={styles.categories}>
-        <div className={`${styles.container} ${styles.categories__container}`}>
-          <div className={styles.categories__left}>
-            <h1>Hva fokuserer vi på i Ikomm Academy?</h1>
-            <p>
-              Vi tror det er viktig å ikke bare fokusere på tekniske
-              ferdigheter, når man skal løfte utviklertalenter opp fra et
-              hobby-nivå til et profesjonelt junior-nivå. Å jobbe som utvikler i
-              dag stiller stadig større krav til de mykere ferdighetene, i
-              tilegg til at man aldri blir utlært som utvikler.
-            </p>
-            <div className={styles.categories_btn_wrapper}>
-              <CustomLink
-                to="/About"
-                className={`btn-secondary ${styles.categories_btn}`}
-              >
-                Les mer
-              </CustomLink>
-              <CustomLink
-                to="/AcademyTV"
-                className={`btn-secondary ${styles.categories_btn}`}
-              >
-                AcademyTV{" "}
-              </CustomLink>
-            </div>
-          </div>
-
-          <div className={styles.categories__right}>{categoriesRendered}</div>
-        </div>
-      </section>
-      {/****************************************Articles************************************************************* */}
-      <section className={styles.articles}>
-        <h2>Artikler/Nyheter</h2>
-        <div className={`${styles.container} ${styles.articles__container}`}>
-          {articlesRendered}
-        </div>
-      </section>
-
-      {/****************************************FAQs************************************************************* */}
-
-      <section className={styles.faqs}>
-        <h2>Frequently Asked Questions</h2>
-        <div className={`${styles.container} ${styles.faqs__container}`}>
-          {faqsRendered}
-        </div>
-      </section>
-      {/****************************************Testimonials************************************************************* */}
-      <section
-        className={`${styles.container} ${styles.testimonials__container} `}
-      >
-        <section className={`container testimonials__container mySwiper`}>
-          <h2>Testimonials</h2>
-          <div className={`swiper-wrapper`}>
-            <Swiper
-              modules={[Navigation, Pagination, Scrollbar, A11y, Virtual]}
-              spaceBetween={50}
-              slidesPerView={2}
-              navigation
-              scrollbar={{ draggable: true }}
-              pagination={{ clickable: true }}
-            >
-              {testimonialsRendered}
-            </Swiper>
-          </div>
-        </section>
-      </section>
-    </>
-  );
-};
 
 export default Home;

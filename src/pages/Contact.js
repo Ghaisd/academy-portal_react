@@ -23,7 +23,7 @@ const Contact = () => {
                 </ul>
             </aside>
     
-            <form action="https://formspree.io/f/xeqnvgjb" method="POST" className="contact__form">
+            <form className="contact__form" action="https://formspree.io/f/xeqnvgjb" method="POST" >
                 <div className={styles.form__name}>
                     <input type="text" name="First Name" placeholder="Fornavn" required/>
                     <input type="text" name="Last Name" placeholder="Etternavn" required/>

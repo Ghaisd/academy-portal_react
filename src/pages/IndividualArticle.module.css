@@ -1,69 +1,64 @@
 #headline {
-    text-align: center
+  text-align: center;
 }
 
 .background_img {
-    max-width: 114rem;
-    height: 48rem;
-    margin: 5rem 0 3rem 10rem;
-    padding-left: 11rem;
+  max-width: 114rem;
+  height: 48rem;
+  margin: 5rem 0 3rem 10rem;
+  padding-left: 11rem;
 }
 
-     h2 {
-        font-size: 3rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 5px;
-    }
-     
-     .profile-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 3rem 0;
-        padding-left: 1rem;
-    }
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
 
-         .profile-container .profile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem 0;
+  padding-left: 1rem;
+}
 
-             .profile-container .profile .img-container {
-                width: 6rem;
-                height: rem;
-                border: 1px groove;
-                margin-bottom: 12px;
-            }
+.profile-container .profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-             .profile-container .profile .text {
-                margin: 0 1rem;
-                color: white;
-                font-size: 1.2rem;
-                font-weight: 400;
-                letter-spacing: 1px;
-                
-            }
+.profile-container .profile .img-container {
+  width: 6rem;
+  height: rem;
+  border: 1px groove;
+  margin-bottom: 12px;
+}
+
+.profile-container .profile .text {
+  margin: 0 1rem;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
 
 .profile .text h3 {
-    text-transform: uppercase;
-    margin-left: 6px;
-    
+  text-transform: uppercase;
+  margin-left: 6px;
 }
 .content {
-    font-size: 2rem;
-    padding: 0 .5rem;
+  font-size: 2rem;
+  padding: 0 0.5rem;
 }
- p {
-    color: white;
-    margin: 1rem 0;
-    margin-left: 12px;
-    
-}
-
-.img-container img{
-    width: 100px;
+p {
+  color: white;
+  margin: 1rem 0;
+  margin-left: 12px;
 }
 
-
+.img-container img {
+  width: 100px;
+}

@@ -1,6 +1,7 @@
 import Article from '../Components/Article';
 import styles from './Articles.module.css'
 import { useState, useEffect } from 'react';
+import Loading from '../Components/Loading';
  
 const Articles = () => {
   const [articlesFromApi, setarticlesFromApi] = useState('');
@@ -19,17 +20,20 @@ useEffect(() => {
         author={articlesFromApi[i].AuthorName}
         articleContent={articlesFromApi[i].Content}
         src={process.env.PUBLIC_URL + articlesFromApi[i].ArticleImage}
-        id={i + 1}
+        id={articlesFromApi[i].Id}
         />
       );
       }
       
-    return(       
+      
+    return(    
+      <Loading DataLength={articlesFromApi.length}>
         <section className={styles.articles}>
-    <div className={`${styles.container} ${styles.articles__container}` }>
-    {articlesRendered}
-    </div>
-</section>
+        <div className={`${styles.container} ${styles.articles__container}` }>
+        {articlesRendered}
+        </div>
+        </section>
+      </Loading>
 
     ) ;
 };

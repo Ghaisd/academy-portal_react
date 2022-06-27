@@ -13,7 +13,7 @@ export const Student = (props) => {
       <p>{props.smallInfo}</p>
     </div>
     <div className={styles['team__member-socials']}>
-      <CustomLink to={`/About/${props.name}`}>
+      <CustomLink to={`/About/${props.studentName}`}>
         {" "}
         <i className={`bi bi-file-earmark-person`}></i>
       </CustomLink>
