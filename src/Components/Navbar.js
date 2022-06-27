@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useScrollPosition } from '../hooks/useScrollPosition';
+import { useScrollPosition } from "../hooks/useScrollPosition";
 import CustomLink from "./CustomLink";
 import styles from "./Navbar.module.css";
 

@@ -7,9 +7,7 @@ export const Achievement = (props) => {
         <i className={props.iconAchievement}></i>
       </span>
       <h3>{props.nrOfAchievement}</h3>
-      <p>{props.finishedAchievement}</p>
+         <p>{props.finishedAchievement}</p>
     </article>
   );
 };
-
-

@@ -107,7 +107,7 @@ const Home = (props) => {
         </div>
       </header>
 
-      {/*--=========================================Categories=========================================*/}
+      {/*=========================================Categories=========================================*/}
 
       <section className={styles.categories}>
         <div className={`${styles.container} ${styles.categories__container}`}>
@@ -139,7 +139,7 @@ const Home = (props) => {
           <div className={styles.categories__right}>{categoriesRendered}</div>
         </div>
       </section>
-      {/****************************************Articles{/**************************************** */}
+      {/*--=========================================Article========================================= */}
         <h2 id={styles.articles_header}>Artikler/Nyheter</h2>
       <Loading DataLength = {articlesFromApi.length}>
         <section className={styles.articles}>
@@ -149,7 +149,7 @@ const Home = (props) => {
         </section>
       </Loading>
 
-      {/****************************************FAQs{/**************************************** */}
+    {/*=========================================FAQs========================================= */}
 
       <section className={styles.faqs}>
         <h2>Frequently Asked Questions</h2>
@@ -157,7 +157,7 @@ const Home = (props) => {
           {faqsRendered}
         </div>
       </section>
-      {/****************************************Testimonials{/**************************************** */}
+    {/*=========================================Testimonials========================================= */}
       <section
         className={`${styles.container} ${styles.testimonials__container} `}
       >
@@ -182,7 +182,7 @@ const Home = (props) => {
 };
 
 
-
+/*******************************************************************/
 const headerTextsCategory = [
   "Kodespråk",
   "Problemløsning",
