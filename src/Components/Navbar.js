@@ -30,7 +30,7 @@ const Navbar = () => {
         </CustomLink>
         <CustomLink
           className={`${styles.nav__item} ${styles.btn_login}`}
-          to="/#"
+          to="/Login"
         >
           Logg inn
         </CustomLink>
