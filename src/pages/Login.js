@@ -8,26 +8,27 @@ const regexEmailValidation =
 const regexPasswordValidation =
   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
-const emailReducer = (state, action) => 
-  action.type === "USER_INPUT"
-    ? { value: action.val, isValid: regexEmailValidation.test(action.val) }
+const formInputReducer = (state, action) =>
+  action.type.includes("USER_INPUT")
+    ? {
+        value: action.val,
+        isValid: (action.type.includes("Email")
+          ? regexEmailValidation
+          : regexPasswordValidation
+        ).test(action.val),
+      }
     : { value: "", isValid: false };
 
-const passwordReducer = (state, action) =>
-  action.type === "USER_INPUT"
-    ? { value: action.val, isValid: regexPasswordValidation.test(action.val) }
-    : { value: "", isValid: false };
 
-
-const Login = (props) => {
+const Login = () => {
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const [emailState, dispatchEmail] = useReducer(emailReducer, {
+  const [emailState, dispatchEmail] = useReducer(formInputReducer, {
     value: "",
     isValid: null,
   });
 
-  const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
+  const [passwordState, dispatchPassword] = useReducer(formInputReducer, {
     value: "",
     isValid: null,
   });
@@ -45,14 +46,12 @@ const Login = (props) => {
   }, [emailIsValid, passwordIsValid]);
 
   const emailChangeHandler = (event) => {
-    dispatchEmail({ type: "USER_INPUT", val: event.target.value });
+    dispatchEmail({ type: "USER_INPUT_Email", val: event.target.value });
   };
 
   const passwordChangeHandler = (event) => {
-    dispatchPassword({ type: "USER_INPUT", val: event.target.value });
+    dispatchPassword({ type: "USER_INPUT_Password", val: event.target.value });
   };
-
- 
 
   return (
     <>
