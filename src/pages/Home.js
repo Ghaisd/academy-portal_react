@@ -11,7 +11,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Loading from "../Components/Loading";
-
+import { categories } from "../Data/categories";
+import { faqs } from "../Data/faqs";
 const Home = () => {
   const [articlesFromApi, setarticlesFromApi] = useState("");
 
@@ -21,20 +22,17 @@ const Home = () => {
       .then((res) => setarticlesFromApi(res));
   }, []);
 
-  const categoriesRendered = [];
-  for (let i = 0; i < headerTextsCategory.length; i++) {
-    categoriesRendered.push(
-      <Category
-        key={i}
-        headerText={headerTextsCategory[i]}
-        paragraphText={paragraphTextsCategory[i]}
-        category__icon={iconClassCategory[i]}
-      />
-    );
-  }
+ const categoriesRendered = categories.map((category) => (
+    <Category
+      //  key={i}
+      headerText={category.headerText}
+      paragraphText={category.paragraphText}
+      category__icon={category.iconClass}
+    />
+  ));
 
   const articlesRendered = [];
-  for (let i = 0; i < articlesFromApi.length/2; i++) {
+  for (let i = 0; i < articlesFromApi.length / 2; i++) {
     articlesRendered.push(
       <Article
         key={i}
@@ -47,16 +45,13 @@ const Home = () => {
     );
   }
 
-  const faqsRendered = [];
-  for (let i = 0; i < headerTextsFaqs.length; i++) {
-    faqsRendered.push(
-      <Faq
-      key={i}
-        headerText={headerTextsFaqs[i]}
-        paragraphText={paragraphTextFaqs[i]}
-      />
-    );
-  }
+  const faqsRendered = faqs.map((faq) => (
+    <Faq
+    headerText={faq.headerText}
+    paragraphText={faq.paragraphText}
+  />
+  ));
+
 
   const testimonialsRendered = [];
   for (let i = 0; i < namesTestimonials.length; i++) {
@@ -104,9 +99,9 @@ const Home = () => {
             src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6876623560589283328"
             height="540"
             width="504"
-            allowfullscreen=""
+            allowFullScreen
             title="Embedded post"
-            ></iframe>
+          ></iframe>
         </div>
       </header>
 
@@ -143,16 +138,16 @@ const Home = () => {
         </div>
       </section>
       {/*--=========================================Article========================================= */}
-        <h2 id={styles.articles_header}>Artikler/Nyheter</h2>
-      <Loading DataLength = {articlesFromApi.length}>
+      <h2 id={styles.articles_header}>Artikler/Nyheter</h2>
+      <Loading DataLength={articlesFromApi.length}>
         <section className={styles.articles}>
-        <div className={`${styles.container} ${styles.articles__container}`}>
-          {articlesRendered}
-        </div>
+          <div className={`${styles.container} ${styles.articles__container}`}>
+            {articlesRendered}
+          </div>
         </section>
       </Loading>
 
-    {/*=========================================FAQs========================================= */}
+      {/*=========================================FAQs========================================= */}
 
       <section className={styles.faqs}>
         <h2>Frequently Asked Questions</h2>
@@ -160,7 +155,7 @@ const Home = () => {
           {faqsRendered}
         </div>
       </section>
-    {/*=========================================Testimonials========================================= */}
+      {/*=========================================Testimonials========================================= */}
       <section
         className={`${styles.container} ${styles.testimonials__container} `}
       >
@@ -184,26 +179,27 @@ const Home = () => {
   );
 };
 
+export default Home;
 
 /*******************************************************************/
-const headerTextsCategory = [
-  "Kodespråk",
-  "Problemløsning",
-  "Samarbeid og kommunikasjon",
-  "Metode og prosess",
-];
-const paragraphTextsCategory = [
-  "Vi fokuserer på å bygge en grunnmur med C# og ASP.NET, med innslag av HTML/CSS og JavaScript. Etterhvert i kurset kan man spesialisere seg litt mer, og gjerne velge litt retning. Vi kombinerer forelesninger med oppgaver, mini-prosjekter og et større case study - og til slutt sitter man igjen med et ganske bredt erfaringsgrunnlag.",
-  "Utvikling er mer enn noe annet fortløpende problemløsning, med Google som en bestevenn. Det krever god problemforståelse, og så er det ett eget lite håndverk å søke etter og vurdere mulige løsninger.",
-  "Den største forskjellen når man går fra hobbytilværelse til en profesjonell utviklerhverdag, handler om at man inngår i et team, i en organisasjon, med kunder. Det stiller helt andre krav til både kommunikasjon og dokumentasjon.",
-  "En utviklerhverdag kjennetegnes også av noen metoder og prosesser som får hjulene til å gå rundt. I Academy prøver vi å snikinnføre noen prinsipper her og der, uten at teorien tar overhånd.",
-];
-const iconClassCategory = [
-  "bi bi-laptop",
-  "bi bi-chat-dots-fill",
-  "bi bi-people-fill",
-  "bi bi-gear-fill",
-];
+// const headerTextsCategory = [
+//   "Kodespråk",
+//   "Problemløsning",
+//   "Samarbeid og kommunikasjon",
+//   "Metode og prosess",
+// ];
+// const paragraphTextsCategory = [
+//   "Vi fokuserer på å bygge en grunnmur med C# og ASP.NET, med innslag av HTML/CSS og JavaScript. Etterhvert i kurset kan man spesialisere seg litt mer, og gjerne velge litt retning. Vi kombinerer forelesninger med oppgaver, mini-prosjekter og et større case study - og til slutt sitter man igjen med et ganske bredt erfaringsgrunnlag.",
+//   "Utvikling er mer enn noe annet fortløpende problemløsning, med Google som en bestevenn. Det krever god problemforståelse, og så er det ett eget lite håndverk å søke etter og vurdere mulige løsninger.",
+//   "Den største forskjellen når man går fra hobbytilværelse til en profesjonell utviklerhverdag, handler om at man inngår i et team, i en organisasjon, med kunder. Det stiller helt andre krav til både kommunikasjon og dokumentasjon.",
+//   "En utviklerhverdag kjennetegnes også av noen metoder og prosesser som får hjulene til å gå rundt. I Academy prøver vi å snikinnføre noen prinsipper her og der, uten at teorien tar overhånd.",
+// ];
+// const iconClassCategory = [
+//   "bi bi-laptop",
+//   "bi bi-chat-dots-fill",
+//   "bi bi-people-fill",
+//   "bi bi-gear-fill",
+// ];
 
 /*******************************************************************/
 
@@ -220,7 +216,7 @@ const paragraphTextFaqs = [
   "Antallet deltagere varierer litt etter nivået på søkere, og hvor mange søkere vi har. Vi prøver å holde alle på omtrent samme kunnskapsnivå så langt det lar seg gjøre, så hvis vi har mange søkere på samme nivå, har vi flere deltagere. Forrige kurs (2022) hadde 7 deltagere.",
   "Du trenger ingen forkunnskaper for å bli med på Ikomm Academy!  Når det er sagt, så har vi alltid en gjennomgang/testing av potensielle deltagere, og det er klart kurset vil være enklere for de som allerede kan litt, men alle kan lære!",
   "Du trenger ingen forkunnskaper for å bli med på Ikomm Academy! Når det er sagt, så har vi alltid en gjennomgang/testing av potensielle deltagere, og det er klart kurset vil være enklere for de som allerede kan litt, men alle kan lære!",
-  " Kurset er 7 måneder (pluss én måned sommerferie), over tre faser: - Kursperioden, som er 2 måneder med forelesninger og intens teori-læring.                  - Prosjektfasen, som er 2 måneder med jobbing i team, hvor man skal lage et faktisk produkt.              - Praksisfasen, som er 3 måneder med praksis i en av de deltagende bedriftene.",
+  "Kurset er 7 måneder (pluss én måned sommerferie), over tre faser: - Kursperioden, som er 2 måneder med forelesninger og intens teori-læring.                  - Prosjektfasen, som er 2 måneder med jobbing i team, hvor man skal lage et faktisk produkt.              - Praksisfasen, som er 3 måneder med praksis i en av de deltagende bedriftene.",
   "Tradisjonelt sett har vi som regel kandidater i praksis enten i Eidsiva Bredbånd, Norkart, eller her i Ikomm.",
   "Det er så klart ikke garantert at du vil ha en jobb med en gang etter kurset, men i de aller fleste tilfeller vi har sett, får våre deltagere jobb eller utvidet praksisperiode i bedriften de har hatt praksis i.",
 ];
@@ -255,5 +251,3 @@ const paragraphTextTestimonials = [
   "Glad for at jeg fikk bli med på kurset her, det lærte meg mye og ga meg en jobb hos Ikomm. Det er også veldig kult å følge med på nye deltagere, og se hvor mange flinke folk vi finner hvert år.",
   "Helt fantastisk å få muligheten til å trene opp så mange deltagere til å bli fullverdige utviklere! En kjempesjanse for deltagerne, og en super ressurs for Ikomm og de deltagende bedriftene.",
 ];
-
-export default Home;
