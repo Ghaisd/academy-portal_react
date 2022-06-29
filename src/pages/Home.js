@@ -13,8 +13,10 @@ import "swiper/css/navigation";
 import Loading from "../Components/Loading";
 import { categories } from "../Data/categories";
 import { faqs } from "../Data/faqs";
+import { testimonials } from "../Data/testimonials";
+
 const Home = () => {
-  const [articlesFromApi, setarticlesFromApi] = useState("");
+  const [articlesFromApi, setarticlesFromApi] = useState([]);
 
   useEffect(() => {
     fetch("https://localhost:7045/api/article")
@@ -22,51 +24,41 @@ const Home = () => {
       .then((res) => setarticlesFromApi(res));
   }, []);
 
- const categoriesRendered = categories.map((category) => (
+  const categoriesRendered = categories.map((category, index) => (
     <Category
-      //  key={i}
+    key={index}
       headerText={category.headerText}
       paragraphText={category.paragraphText}
       category__icon={category.iconClass}
     />
   ));
 
-  const articlesRendered = [];
-  for (let i = 0; i < articlesFromApi.length / 2; i++) {
-    articlesRendered.push(
-      <Article
-        key={i}
-        headline={articlesFromApi[i].Title}
-        author={articlesFromApi[i].AuthorName}
-        articleContent={articlesFromApi[i].Content}
-        src={process.env.PUBLIC_URL + articlesFromApi[i].ArticleImage}
-        id={articlesFromApi[i].Id}
-      />
-    );
-  }
-
-  const faqsRendered = faqs.map((faq) => (
-    <Faq
-    headerText={faq.headerText}
-    paragraphText={faq.paragraphText}
-  />
+  const articlesRendered = articlesFromApi.slice(0,3).map((article, index) => (
+    <Article
+    key={index}
+      headline={article.Title}
+      author={article.AuthorName}
+      articleContent={article.Content}
+      src={process.env.PUBLIC_URL + article.ArticleImage}
+      id={article.Id}
+    />
   ));
 
+  const faqsRendered = faqs.map((faq, index) => (
+    <Faq key={index} headerText={faq.headerText} paragraphText={faq.paragraphText} />
+  ));
 
-  const testimonialsRendered = [];
-  for (let i = 0; i < namesTestimonials.length; i++) {
-    testimonialsRendered.push(
-      <SwiperSlide key={i}>
-        <Testimonial
-          key={i}
-          imageLink={process.env.PUBLIC_URL + imagesTestimonials[i]}
-          name={namesTestimonials[i]}
-          role={rolesTestimonials[i]}
-          paragraphText={paragraphTextTestimonials[i]}
-        />
-      </SwiperSlide>
-    );
-  }
+  const testimonialsRendered = testimonials.map((testimonial, index) => (
+    <SwiperSlide key={index}>
+      <Testimonial
+      key={index}
+        imageLink={testimonial.image}
+        name={testimonial.name}
+        role={testimonial.role}
+        paragraphText={testimonial.paragraphText}
+      />
+    </SwiperSlide>
+  ));
 
   return (
     <>
@@ -181,47 +173,6 @@ const Home = () => {
 
 export default Home;
 
-/*******************************************************************/
-// const headerTextsCategory = [
-//   "Kodespråk",
-//   "Problemløsning",
-//   "Samarbeid og kommunikasjon",
-//   "Metode og prosess",
-// ];
-// const paragraphTextsCategory = [
-//   "Vi fokuserer på å bygge en grunnmur med C# og ASP.NET, med innslag av HTML/CSS og JavaScript. Etterhvert i kurset kan man spesialisere seg litt mer, og gjerne velge litt retning. Vi kombinerer forelesninger med oppgaver, mini-prosjekter og et større case study - og til slutt sitter man igjen med et ganske bredt erfaringsgrunnlag.",
-//   "Utvikling er mer enn noe annet fortløpende problemløsning, med Google som en bestevenn. Det krever god problemforståelse, og så er det ett eget lite håndverk å søke etter og vurdere mulige løsninger.",
-//   "Den største forskjellen når man går fra hobbytilværelse til en profesjonell utviklerhverdag, handler om at man inngår i et team, i en organisasjon, med kunder. Det stiller helt andre krav til både kommunikasjon og dokumentasjon.",
-//   "En utviklerhverdag kjennetegnes også av noen metoder og prosesser som får hjulene til å gå rundt. I Academy prøver vi å snikinnføre noen prinsipper her og der, uten at teorien tar overhånd.",
-// ];
-// const iconClassCategory = [
-//   "bi bi-laptop",
-//   "bi bi-chat-dots-fill",
-//   "bi bi-people-fill",
-//   "bi bi-gear-fill",
-// ];
-
-/*******************************************************************/
-
-const headerTextsFaqs = [
-  "Hvem kan delta på Ikomm Academy?",
-  "Hvor mange deltagere er det?",
-  "Hva kreves av forkunnskaper?",
-  "Hvor lenge varer kurset?",
-  "Hvilke bedrifter kan jeg ha praksis i?",
-  "Kan jeg få jobb etter kurset?",
-];
-
-const paragraphTextFaqs = [
-  "Antallet deltagere varierer litt etter nivået på søkere, og hvor mange søkere vi har. Vi prøver å holde alle på omtrent samme kunnskapsnivå så langt det lar seg gjøre, så hvis vi har mange søkere på samme nivå, har vi flere deltagere. Forrige kurs (2022) hadde 7 deltagere.",
-  "Du trenger ingen forkunnskaper for å bli med på Ikomm Academy!  Når det er sagt, så har vi alltid en gjennomgang/testing av potensielle deltagere, og det er klart kurset vil være enklere for de som allerede kan litt, men alle kan lære!",
-  "Du trenger ingen forkunnskaper for å bli med på Ikomm Academy! Når det er sagt, så har vi alltid en gjennomgang/testing av potensielle deltagere, og det er klart kurset vil være enklere for de som allerede kan litt, men alle kan lære!",
-  "Kurset er 7 måneder (pluss én måned sommerferie), over tre faser: - Kursperioden, som er 2 måneder med forelesninger og intens teori-læring.                  - Prosjektfasen, som er 2 måneder med jobbing i team, hvor man skal lage et faktisk produkt.              - Praksisfasen, som er 3 måneder med praksis i en av de deltagende bedriftene.",
-  "Tradisjonelt sett har vi som regel kandidater i praksis enten i Eidsiva Bredbånd, Norkart, eller her i Ikomm.",
-  "Det er så klart ikke garantert at du vil ha en jobb med en gang etter kurset, men i de aller fleste tilfeller vi har sett, får våre deltagere jobb eller utvidet praksisperiode i bedriften de har hatt praksis i.",
-];
-
-/*******************************************************************/
 // Testimonial component
 const imagesTestimonials = [
   "/images/avatar1.png",
