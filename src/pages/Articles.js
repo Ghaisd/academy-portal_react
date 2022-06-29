@@ -4,26 +4,24 @@ import { useState, useEffect } from 'react';
 import Loading from '../Components/Loading';
  
 const Articles = () => {
-  const [articlesFromApi, setarticlesFromApi] = useState('');
+  const [articlesFromApi, setarticlesFromApi] = useState([]);
 // onMount
 useEffect(() => {
   fetch("https://localhost:7045/api/article").then((res) => res.json()).then((res) => setarticlesFromApi(res)  
   );
 }, []);
 
-     const articlesRendered = [];
-    for (let i = 0; i < articlesFromApi.length; i++) {
-      articlesRendered.push(
-        <Article
-        key={i}
-        headline={articlesFromApi[i].Title}
-        author={articlesFromApi[i].AuthorName}
-        articleContent={articlesFromApi[i].Content}
-        src={process.env.PUBLIC_URL + articlesFromApi[i].ArticleImage}
-        id={articlesFromApi[i].Id}
-        />
-      );
-      }
+const articlesRendered = articlesFromApi
+.map((article, index) => (
+  <Article
+    key={index}
+    headline={article.Title}
+    author={article.AuthorName}
+    articleContent={article.Content}
+    src={process.env.PUBLIC_URL + article.ArticleImage}
+    id={article.Id}
+  />
+));
       
       
     return(    

@@ -26,32 +26,38 @@ const Home = () => {
 
   const categoriesRendered = categories.map((category, index) => (
     <Category
-    key={index}
+      key={index}
       headerText={category.headerText}
       paragraphText={category.paragraphText}
       category__icon={category.iconClass}
     />
   ));
 
-  const articlesRendered = articlesFromApi.slice(0,3).map((article, index) => (
-    <Article
-    key={index}
-      headline={article.Title}
-      author={article.AuthorName}
-      articleContent={article.Content}
-      src={process.env.PUBLIC_URL + article.ArticleImage}
-      id={article.Id}
-    />
-  ));
+  const articlesRendered = articlesFromApi
+    .slice(0, 3)
+    .map((article, index) => (
+      <Article
+        key={index}
+        headline={article.Title}
+        author={article.AuthorName}
+        articleContent={article.Content}
+        src={process.env.PUBLIC_URL + article.ArticleImage}
+        id={article.Id}
+      />
+    ));
 
   const faqsRendered = faqs.map((faq, index) => (
-    <Faq key={index} headerText={faq.headerText} paragraphText={faq.paragraphText} />
+    <Faq
+      key={index}
+      headerText={faq.headerText}
+      paragraphText={faq.paragraphText}
+    />
   ));
 
   const testimonialsRendered = testimonials.map((testimonial, index) => (
     <SwiperSlide key={index}>
       <Testimonial
-      key={index}
+        key={index}
         imageLink={testimonial.image}
         name={testimonial.name}
         role={testimonial.role}
@@ -172,33 +178,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// Testimonial component
-const imagesTestimonials = [
-  "/images/avatar1.png",
-  "/images/avatar2.png",
-  "/images/avatar3.png",
-  "/images/avatar4.png",
-  "/images/avatar5.png",
-];
-const namesTestimonials = [
-  "Tor André Pettersen",
-  "Kristian Enge",
-  "Marius Kristiansen",
-  "Nichlas Bergseter",
-  "Erik van Appeldoorn",
-];
-const rolesTestimonials = [
-  "Student 2022",
-  "Utviklersjef i Ikomm",
-  "Student 2021",
-  "Student 2019",
-  "Foreleser",
-];
-const paragraphTextTestimonials = [
-  "Det er et skikkelig tøft kurs, med utrolig mye man skal lære på utrolig kort tid, men bare man kommer seg gjennom det, har man lært seg fantastisk mye, skaffet seg nye venner, kontakter i flere IT-selskap, og lært om hvordan det er å jobbe som utvikler! Ekstremt lærerikt kurs!",
-  "Som en av initiativtakerne til programmet har det vært skikkelig kult å se hvor bra det faktisk har blitt. Vi har lært mye på veien og gjort endringer underveis, og for oss rundt er det ingen tvil om at det krever mye ressurser å kjøre et sånt opplegg, både før, underveis, og etterpå. Fasiten er allikevel klar, vårt utviklerteam er i dag i mye bedre skikk på grunn av Ikomm Academy, så for oss, Ikomm og forhåpentligvis kundene våre er det helt uvurderlig.",
-  " Veldig tøft kurs, lærte utrolig mye! Ga meg også en for i døra til Ikomm, hvor jeg nå jobber som utvikler!",
-  "Glad for at jeg fikk bli med på kurset her, det lærte meg mye og ga meg en jobb hos Ikomm. Det er også veldig kult å følge med på nye deltagere, og se hvor mange flinke folk vi finner hvert år.",
-  "Helt fantastisk å få muligheten til å trene opp så mange deltagere til å bli fullverdige utviklere! En kjempesjanse for deltagerne, og en super ressurs for Ikomm og de deltagende bedriftene.",
-];

@@ -3,79 +3,52 @@ import { Student } from "../Components/Student";
 import styles from "./About.module.css";
 import { useState, useEffect } from "react";
 import Loading from "../Components/Loading";
-
-
-// Hard Coded data -- just for now -- before deployment
-const nrOfAchievements = ["2", "13", "10", "9"];
-const iconAchievements = [
-  "bi bi-check-square-fill",
-  "bi bi-people-fill",
-  "bi bi-award-fill",
-  "bi bi-trophy-fill",
-];
-const finishedAchievements = [
-  "runder gjennomført",
-  "studenter starter",
-  "som fullførte",
-  "av disse jobber i dag innen IT",
-];
+import { achievements } from "../Data/achievements";
 
 const About = () => {
-  const [studentsFromApi, setStudentsFromApi] = useState("");
+  const [studentsFromApi, setStudentsFromApi] = useState([]);
 
-  // onMount
   useEffect(() => {
     fetch("https://localhost:7045/api/allstudents")
       .then((res) => res.json())
       .then((res) => setStudentsFromApi(res));
-    console.log(studentsFromApi.length);
-  });
-  const achievementsRendered = [];
-  for (let i = 0; i < nrOfAchievements.length; i++) {
-    achievementsRendered.push(
-      <Achievement
-        iconAchievement={iconAchievements[i]}
-        nrOfAchievement={nrOfAchievements[i]}
-        finishedAchievement={finishedAchievements[i]}
+  }, []);
+  const achievementsRendered = achievements.map((achievement, index) => (
+<Achievement
+        key={index}
+        nrOfAchievement={achievement.nr}
+        iconAchievement={achievement.icon}
+        finishedAchievement={achievement.finished}
       />
-    );
-  }
+  ))
 
-  const studentsRendered = [];
-  if (studentsFromApi.length > 0)
-    for (let i = 0; i < studentsFromApi.length; i++) {
-      studentsRendered.push(
-        <Student
-          key={i}
-          src={studentsFromApi[i].ProfileImage}
-          studentName={studentsFromApi[i].Name}
-          smallInfo={studentsFromApi[i].ShortInfo}
-          gitAccount={studentsFromApi[i].Github}
-        />
-      );
-    }
-    
+  // if (studentsFromApi.length > 0)
+  const studentsRendered = studentsFromApi.map((student, index) => (
+    <Student
+      key={index}
+      src={student.ProfileImage}
+      studentName={student.Name}
+      smallInfo={student.ShortInfo}
+      gitAccount={student.Github}
+    />
+  ));
 
   return (
     <>
-    
-        <h2 id={styles.students_header}>Årets kull</h2>
-    <Loading DataLength={studentsFromApi.length}>
-      <section className={styles.team}>
-        <div className={`${styles.container} ${styles.team__container}`}>
-          {studentsRendered}
-        </div>
-      </section>
+      <h2 id={styles.students_header}>Årets kull</h2>
+      <Loading DataLength={studentsFromApi.length}>
+        <section className={styles.team}>
+          <div className={`${styles.container} ${styles.team__container}`}>
+            {studentsRendered}
+          </div>
+        </section>
       </Loading>
       <section className={styles.about__achievements}>
         <div
           className={`${styles.container} ${styles["about__achievements-container"]}`}
         >
           <div className={styles["about__achievements-left"]}>
-            <img
-              src="/images/about_achievements.svg"
-              alt="achievement"
-            />
+            <img src="/images/about_achievements.svg" alt="achievement" />
           </div>
 
           <div className={styles["about__achievements-right"]}>
@@ -100,8 +73,7 @@ const About = () => {
           </div>
         </div>
       </section>
-     
-      </>
+    </>
   );
 };
 
