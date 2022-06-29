@@ -124,7 +124,9 @@ form .signup-link a:hover {
 #password_reset {
   color: black;
 }
-
-.change_color {
+.btn_valid {
     background: #537a5a;
+}
+.btn_invalid {
+  cursor: not-allowed;
 }

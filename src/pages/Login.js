@@ -93,7 +93,7 @@ const Login = () => {
             <div className={`row button`}>
               <input
                 type="submit"
-                className={`${formIsValid ? styles.change_color : ""}`}
+                className={`${formIsValid ? styles.btn_valid : styles.btn_invalid}`}
                 disabled={!formIsValid}
               />
             </div>

@@ -25,6 +25,7 @@ const Home = () => {
   for (let i = 0; i < headerTextsCategory.length; i++) {
     categoriesRendered.push(
       <Category
+        key={i}
         headerText={headerTextsCategory[i]}
         paragraphText={paragraphTextsCategory[i]}
         category__icon={iconClassCategory[i]}
@@ -50,6 +51,7 @@ const Home = () => {
   for (let i = 0; i < headerTextsFaqs.length; i++) {
     faqsRendered.push(
       <Faq
+      key={i}
         headerText={headerTextsFaqs[i]}
         paragraphText={paragraphTextFaqs[i]}
       />
@@ -59,8 +61,9 @@ const Home = () => {
   const testimonialsRendered = [];
   for (let i = 0; i < namesTestimonials.length; i++) {
     testimonialsRendered.push(
-      <SwiperSlide>
+      <SwiperSlide key={i}>
         <Testimonial
+          key={i}
           imageLink={process.env.PUBLIC_URL + imagesTestimonials[i]}
           name={namesTestimonials[i]}
           role={rolesTestimonials[i]}
