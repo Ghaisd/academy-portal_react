@@ -5,7 +5,7 @@ import styles from './Faq.module.css'
 let displayMode  = "d-none";
 
 
-const Faq= (props) => {
+const Faq= ({headerText, paragraphText}) => {
     const [faqIconClassNames, SetFaqIconClassNames] = useState('bi bi-plus-square');
     const SetCssClasses = () =>{
         if (faqIconClassNames === "bi bi-plus-square")
@@ -23,9 +23,9 @@ const Faq= (props) => {
         <article className={styles.faq}>
         <div onClick={SetCssClasses} className={styles.faq__icon}><i className={faqIconClassNames}></i></div>
         <div className={styles.question__answer}>
-            <h4>{props.headerText}</h4>
+            <h4>{headerText}</h4>
             <p className={displayMode}>
-                {props.paragraphText}
+                {paragraphText}
             </p>
         </div>
     </article>   

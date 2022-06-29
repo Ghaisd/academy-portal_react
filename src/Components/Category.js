@@ -1,15 +1,15 @@
 import styles from './Category.module.css'
 
-const Category = (props) => {
+const Category = ({category__icon, headerText, paragraphText}) => {
 
-    const cssIcon = props.category__icon;
+    const cssIcon = category__icon;
   return (
     <article className={styles.category}>
       <span className={styles.category__icon}>
         <i className={cssIcon}></i>
       </span>
-      <h5>{props.headerText}</h5>
-      <p>{props.paragraphText}</p>
+      <h5>{headerText}</h5>
+      <p>{paragraphText}</p>
     </article>
   );
 }

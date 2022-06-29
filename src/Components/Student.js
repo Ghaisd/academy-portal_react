@@ -1,19 +1,19 @@
 import styles from './Student.module.css'
 import CustomLink from "./CustomLink";
 
-export const Student = (props) => {
+export const Student = ({src, studentName, smallInfo, gitAccount}) => {
     return (
 
         <article className={styles.team__member}>
     <div className={styles['team__member-image']}>
-      <img src={props.src} alt="Student" />
+      <img src={src} alt="Student" />
     </div>
     <div className={styles['team__member-info']}>
-      <h4>{props.studentName}</h4>
-      <p>{props.smallInfo}</p>
+      <h4>{studentName}</h4>
+      <p>{smallInfo}</p>
     </div>
     <div className={styles['team__member-socials']}>
-      <CustomLink to={`/About/${props.studentName}`}>
+      <CustomLink to={`/About/${studentName}`}>
         {" "}
         <i className={`bi bi-file-earmark-person`}></i>
       </CustomLink>
@@ -21,7 +21,7 @@ export const Student = (props) => {
         {" "}
         <i className={`bi bi-linkedin`}></i>
       </a>
-      <a href={props.gitAccount} target="_blank"  rel='noreferrer'>
+      <a href={gitAccount} target="_blank"  rel='noreferrer'>
         {" "}
         <i className={`bi bi-github`}></i>
       </a>

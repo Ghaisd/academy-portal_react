@@ -12,7 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Loading from "../Components/Loading";
 
-const Home = (props) => {
+const Home = () => {
   const [articlesFromApi, setarticlesFromApi] = useState("");
 
   useEffect(() => {

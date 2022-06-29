@@ -1,13 +1,13 @@
 import styles from "./Achievement.module.css";
 
-export const Achievement = (props) => {
+export const Achievement = ({iconAchievement,nrOfAchievement,finishedAchievement}) => {
   return (
     <article className={styles.achievement__card}>
       <span className={styles.achievement__icon}>
-        <i className={props.iconAchievement}></i>
+        <i className={iconAchievement}></i>
       </span>
-      <h3>{props.nrOfAchievement}</h3>
-         <p>{props.finishedAchievement}</p>
+      <h3>{nrOfAchievement}</h3>
+         <p>{finishedAchievement}</p>
     </article>
   );
 };
