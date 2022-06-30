@@ -1,19 +1,19 @@
 import styles from './Testimonial.module.css'
 
-const Testimonial = (props) => {
+const Testimonial = ({imageLink, name, role, paragraphText}) => {
     return(
         <article className={`${styles.testimonial} swiper-slide`}>
         <div className={styles.avatar}>
-            <img src={props.imageLink} alt='writer'/>
+            <img src={imageLink} alt='writer'/>
         </div>
   
         <div className={styles.testimonial__info}>
-            <h5>{props.name}</h5>
-            <small>{props.role}</small>
+            <h5>{name}</h5>
+            <small>{role}</small>
         </div>
         <div className={styles.testimonial__body}>
             <p>
-                {props.paragraphText}
+                {paragraphText}
             </p>
         </div>
     </article>
