@@ -14,7 +14,9 @@ import Loading from "../Components/Loading";
 import { categories } from "../Data/categories";
 import { faqs } from "../Data/faqs";
 import { testimonials } from "../Data/testimonials";
+import { staticTextHome } from "../Data/staticText";
 
+const {headerSectionTextH, headerSectionTextP, categoriesSectionTextH, categoriesSectionTextP} = staticTextHome
 const Home = () => {
   const [articlesFromApi, setarticlesFromApi] = useState([]);
 
@@ -72,19 +74,10 @@ const Home = () => {
         <div className={`${styles.container} ${styles.header__container}`}>
           <div className={styles.header__left}>
             <h1>
-              Det handler om å gi flinke folk en sjanse, og å finne flinke folk
-              som tar den.
+            {headerSectionTextH}
             </h1>
             <p className={styles.long__paragraph}>
-              Med Ikomm Academy har Ikomm i tett samarbeid med NAV Lillehammer
-              bevist at det fortsatt finnes ekte vinn-vinn-situasjoner. Kort
-              fortalt henter vi med Ikomm Academy kodetalenter ut av
-              NAV-systemet, skolerer dem i moderne utviklingsprinsipper og
-              kodespråk, og får dem ut i arbeid - enten hos oss eller hos noen
-              andre. Vi som arbeidsgiver får tak i kompetanse vi mangler, NAV
-              får folk ut i arbeid, samfunnet utnytter ressursene våre bedre, og
-              ikke minst får kandidatene selv en helt unik mulighet til å slå
-              seg opp i en karriere full av fremtidsmuligheter.
+            {headerSectionTextP}
             </p>
             <CustomLink
               to="/Contact"
@@ -108,13 +101,9 @@ const Home = () => {
       <section className={styles.categories}>
         <div className={`${styles.container} ${styles.categories__container}`}>
           <div className={styles.categories__left}>
-            <h1>Hva fokuserer vi på i Ikomm Academy?</h1>
+            <h1>{categoriesSectionTextH}</h1>
             <p>
-              Vi tror det er viktig å ikke bare fokusere på tekniske
-              ferdigheter, når man skal løfte utviklertalenter opp fra et
-              hobby-nivå til et profesjonelt junior-nivå. Å jobbe som utvikler i
-              dag stiller stadig større krav til de mykere ferdighetene, i
-              tilegg til at man aldri blir utlært som utvikler.
+            {categoriesSectionTextP}
             </p>
             <div className={styles.categories_btn_wrapper}>
               <CustomLink
@@ -135,7 +124,9 @@ const Home = () => {
           <div className={styles.categories__right}>{categoriesRendered}</div>
         </div>
       </section>
-      {/*--=========================================Article========================================= */}
+
+      {/*--=========================================Articles========================================= */}
+
       <h2 id={styles.articles_header}>Artikler/Nyheter</h2>
       <Loading DataLength={articlesFromApi.length}>
         <section className={styles.articles}>
@@ -153,7 +144,9 @@ const Home = () => {
           {faqsRendered}
         </div>
       </section>
+
       {/*=========================================Testimonials========================================= */}
+
       <section
         className={`${styles.container} ${styles.testimonials__container} `}
       >
