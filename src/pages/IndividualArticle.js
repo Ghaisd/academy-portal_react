@@ -2,15 +2,14 @@ import styles from "./IndividualArticle.module.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Loading from "../Components/Loading";
-
+import axios from 'axios' 
 const IndividualArticle = () => {
   const { id } = useParams();
   const [articleFromApi, setarticleFromApi] = useState("");
   // onMount
   useEffect(() => {
-    fetch(`https://localhost:7045/api/Article/${id}`)
-      .then((res) => res.json())
-      .then((res) => setarticleFromApi(res));
+    axios(`https://localhost:7045/api/Article/${id}`)
+      .then((res) => setarticleFromApi(res.data));
   }, [id]);
 
   
