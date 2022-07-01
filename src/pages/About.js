@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Loading from "../Components/Loading";
 import { achievements } from "../Data/achievements";
 import { staticTextAbout } from "../Data/staticText";
+import axios from 'axios'
 
 const {achievementsSectionTextP} = staticTextAbout
 
@@ -12,9 +13,8 @@ const About = () => {
   const [studentsFromApi, setStudentsFromApi] = useState([]);
 
   useEffect(() => {
-    fetch("https://localhost:7045/api/allstudents")
-      .then((res) => res.json())
-      .then((res) => setStudentsFromApi(res));
+    axios("https://localhost:7045/api/allstudents")
+      .then((res) => setStudentsFromApi(res.data));
   }, []);
   const achievementsRendered = achievements.map((achievement, index) => (
 <Achievement

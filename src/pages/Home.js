@@ -15,15 +15,21 @@ import { categories } from "../Data/categories";
 import { faqs } from "../Data/faqs";
 import { testimonials } from "../Data/testimonials";
 import { staticTextHome } from "../Data/staticText";
+import axios from "axios";
 
-const {headerSectionTextH, headerSectionTextP, categoriesSectionTextH, categoriesSectionTextP} = staticTextHome
+const {
+  headerSectionTextH,
+  headerSectionTextP,
+  categoriesSectionTextH,
+  categoriesSectionTextP,
+} = staticTextHome;
 const Home = () => {
   const [articlesFromApi, setarticlesFromApi] = useState([]);
 
   useEffect(() => {
-    fetch("https://localhost:7045/api/article")
-      .then((res) => res.json())
-      .then((res) => setarticlesFromApi(res));
+    axios("https://localhost:7045/api/article").then((res) =>
+      setarticlesFromApi(res.data)
+    );
   }, []);
 
   const categoriesRendered = categories.map((category, index) => (
@@ -73,12 +79,8 @@ const Home = () => {
       <header>
         <div className={`${styles.container} ${styles.header__container}`}>
           <div className={styles.header__left}>
-            <h1>
-            {headerSectionTextH}
-            </h1>
-            <p className={styles.long__paragraph}>
-            {headerSectionTextP}
-            </p>
+            <h1>{headerSectionTextH}</h1>
+            <p className={styles.long__paragraph}>{headerSectionTextP}</p>
             <CustomLink
               to="/Contact"
               className={`btn-secondary ${styles.btn_header}`}
@@ -102,9 +104,7 @@ const Home = () => {
         <div className={`${styles.container} ${styles.categories__container}`}>
           <div className={styles.categories__left}>
             <h1>{categoriesSectionTextH}</h1>
-            <p>
-            {categoriesSectionTextP}
-            </p>
+            <p>{categoriesSectionTextP}</p>
             <div className={styles.categories_btn_wrapper}>
               <CustomLink
                 to="/About"
