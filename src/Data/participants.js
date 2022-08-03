@@ -12,7 +12,7 @@ export const participants = [
         $numberLong: "1641855600000",
       },
     },
-    Image: "/images/iro.jpg",
+    Image: "/images/iro.png",
     GithubLink: "https://github.com/Iro83",
     LinkedinLink: "string",
   },
