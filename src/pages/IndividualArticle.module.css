@@ -5,8 +5,11 @@
 .background_img {
   max-width: 114rem;
   height: 48rem;
-  margin: 5rem 0 3rem 10rem;
-  padding-left: 8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 h2 {
@@ -32,7 +35,6 @@ h2 {
 
 .profile-container .profile .img-container {
   width: 6rem;
-  height: rem;
   border: 1px groove;
   margin-bottom: 12px;
 }
@@ -52,6 +54,7 @@ h2 {
 .content {
   font-size: 2rem;
   padding: 0 0.5rem;
+  margin-bottom: 4rem;
 }
 p {
   color: white;

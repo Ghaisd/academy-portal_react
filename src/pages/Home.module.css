@@ -82,8 +82,10 @@ header  {
 /* ======================= POPULAR ARTICLES ========================*/
 
 #articles_header{
-    padding-left: 710px;
-    padding-top: 220px;
+    padding-top: 15rem;
+    width: 20%;
+     margin:0 auto ;
+     display:block ;
 }
 .articles {
     margin-left: 10rem;
@@ -112,9 +114,10 @@ header  {
 }
 
 .faqs h2{
-    margin-bottom: 100px;
-    padding-top: 100px;
-    padding-left: 380px;
+      width: 50%;
+     margin:20px auto ;
+     display:block ;
+     padding: 2rem;
 }
 
 /* ======================= TESTIMONIALS ========================*/

@@ -9,8 +9,10 @@ import IndividualArticle from "./pages/IndividualArticle";
 import IndividualPersonalizedPage from "./pages/IndividualPersonalizedPage";
 import Footer from "./Components/Footer";
 import Login from "./pages/Login";
+import {useScrollToTop} from './hooks/useScrollToTop'
 
 const App = (props) => {
+  useScrollToTop();
   return (
     <>
       <Navbar />

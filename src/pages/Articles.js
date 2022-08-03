@@ -1,30 +1,22 @@
 import Article from "../Components/Article";
 import styles from "./Articles.module.css";
-import { useState, useEffect } from "react";
 import Loading from "../Components/Loading";
-import axios from "axios";
-const Articles = () => {
-  const [articlesFromApi, setarticlesFromApi] = useState([]);
-  // onMount
-  useEffect(() => {
-    axios("https://localhost:7045/api/article").then((res) =>
-      setarticlesFromApi(res.data)
-    );
-  }, []);
+import {articles} from '../Data/articles'
 
-  const articlesRendered = articlesFromApi.map((article, index) => (
+const Articles = () => {
+  const articlesRendered = articles.map((article, index) => (
     <Article
       key={index}
       headline={article.Title}
       author={article.AuthorName}
       articleContent={article.Content}
-      src={process.env.PUBLIC_URL + article.ArticleImage}
-      id={article.Id}
+      src={article.ImageLInk}
+      id={article._id}
     />
   ));
 
   return (
-    <Loading DataLength={articlesFromApi.length}>
+    <Loading DataLength={articles.length}>
       <section className={styles.articles}>
         <div className={`${styles.container} ${styles.articles__container}`}>
           {articlesRendered}
