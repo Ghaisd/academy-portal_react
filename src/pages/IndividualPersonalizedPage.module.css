@@ -55,6 +55,7 @@
   border-radius: 5%;
   font-size: 1.2rem;
   transition: var(--transition);
+  
 }
 .social a:hover {
   background: var(--color-primary);

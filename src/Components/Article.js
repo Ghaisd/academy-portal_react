@@ -5,7 +5,7 @@ const Article = ({ src, headline, author, articleContent, id }) => {
   return (
     <article className={styles.article}>
       <div className={styles.article__Image}>
-        <img src={src} alt="author" />
+        <img src={src} alt="article" />
       </div>
       <div className={styles.article__info}>
         <h3>{headline}</h3>

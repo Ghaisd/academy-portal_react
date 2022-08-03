@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Navigation, Pagination, Scrollbar, A11y, Virtual } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Category from "../Components/Category";
@@ -15,7 +14,7 @@ import { categories } from "../Data/categories";
 import { faqs } from "../Data/faqs";
 import { testimonials } from "../Data/testimonials";
 import { staticTextHome } from "../Data/staticText";
-import axios from "axios";
+import { articles } from "../Data/articles";
 
 const {
   headerSectionTextH,
@@ -24,14 +23,6 @@ const {
   categoriesSectionTextP,
 } = staticTextHome;
 const Home = () => {
-  const [articlesFromApi, setarticlesFromApi] = useState([]);
-
-  useEffect(() => {
-    axios("https://localhost:7045/api/article").then((res) =>
-      setarticlesFromApi(res.data)
-    );
-  }, []);
-
   const categoriesRendered = categories.map((category, index) => (
     <Category
       key={index}
@@ -41,7 +32,7 @@ const Home = () => {
     />
   ));
 
-  const articlesRendered = articlesFromApi
+  const articlesRendered = articles
     .slice(0, 3)
     .map((article, index) => (
       <Article
@@ -49,8 +40,8 @@ const Home = () => {
         headline={article.Title}
         author={article.AuthorName}
         articleContent={article.Content}
-        src={process.env.PUBLIC_URL + article.ArticleImage}
-        id={article.Id}
+        src={article.ImageLInk}
+        id={article._id}
       />
     ));
 
@@ -128,7 +119,7 @@ const Home = () => {
       {/*--=========================================Articles========================================= */}
 
       <h2 id={styles.articles_header}>Artikler/Nyheter</h2>
-      <Loading DataLength={articlesFromApi.length}>
+      <Loading DataLength={articles.length}>
         <section className={styles.articles}>
           <div className={`${styles.container} ${styles.articles__container}`}>
             {articlesRendered}

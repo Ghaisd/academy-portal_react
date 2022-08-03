@@ -1,21 +1,15 @@
 import { Achievement } from "../Components/Achievement";
 import { Student } from "../Components/Student";
 import styles from "./About.module.css";
-import { useState, useEffect } from "react";
 import Loading from "../Components/Loading";
 import { achievements } from "../Data/achievements";
 import { staticTextAbout } from "../Data/staticText";
-import axios from 'axios'
+import { participants } from "../Data/participants";
 
 const {achievementsSectionTextP} = staticTextAbout
 
 const About = () => {
-  const [studentsFromApi, setStudentsFromApi] = useState([]);
-
-  useEffect(() => {
-    axios("https://localhost:7045/api/allstudents")
-      .then((res) => setStudentsFromApi(res.data));
-  }, []);
+ 
   const achievementsRendered = achievements.map((achievement, index) => (
 <Achievement
         key={index}
@@ -25,11 +19,10 @@ const About = () => {
       />
   ))
 
-  // if (studentsFromApi.length > 0)
-  const studentsRendered = studentsFromApi.map((student, index) => (
+  const studentsRendered = participants.map((student, index) => (
     <Student
       key={index}
-      src={student.ProfileImage}
+      src={student.Image}
       studentName={student.Name}
       smallInfo={student.ShortInfo}
       gitAccount={student.Github}
@@ -39,7 +32,7 @@ const About = () => {
   return (
     <>
       <h2 id={styles.students_header}>Årets kull</h2>
-      <Loading DataLength={studentsFromApi.length}>
+      <Loading DataLength={participants.length}>
         <section className={styles.team}>
           <div className={`${styles.container} ${styles.team__container}`}>
             {studentsRendered}
