@@ -25,7 +25,7 @@ const About = () => {
       src={student.Image}
       studentName={student.Name}
       smallInfo={student.ShortInfo}
-      gitAccount={student.Github}
+      gitAccount={student.GithubLink}
     />
   ));
 
