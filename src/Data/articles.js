@@ -1,6 +1,6 @@
 export const articles = [
   {
-    _id: 1,
+    id: 1,
     AuthorId: 97846,
     AuthorName: "Ghais",
     AuthorImageLink: "/images/Ghais.jpg",
@@ -17,7 +17,7 @@ export const articles = [
     },
   },
   {
-    _id: 2,
+    id: 2,
     AuthorId: 55969,
     AuthorName: "Tor",
     AuthorImageLink: "/images/Tor.png",
@@ -34,7 +34,7 @@ export const articles = [
     },
   },
   {
-    _id: 3,
+    id: 3,
     AuthorId: 33466,
     AuthorName: "Argyro",
     AuthorImageLink: "/images/iro.png",
@@ -51,7 +51,7 @@ export const articles = [
     },
   },
   {
-    _id: 4,
+    id: 4,
     AuthorId: 36824,
     AuthorName: "Aksel",
     AuthorImageLink: "/images/Aksel.jpg",
@@ -68,7 +68,7 @@ export const articles = [
     },
   },
   {
-    _id: 5,
+    id: 5,
     AuthorId: 36824,
     AuthorName: "Aksel",
     AuthorImageLink: "/images/Aksel.jpg",
@@ -85,7 +85,7 @@ export const articles = [
     },
   },
   {
-    _id: 64517,
+    id: 64517,
     AuthorId: 67645,
     AuthorName: "Kristian",
     AuthorImageLink: "/images/Avatar2.png",
