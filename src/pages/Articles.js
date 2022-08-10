@@ -1,6 +1,6 @@
 import Article from "../Components/Article";
 import styles from "./Articles.module.css";
-import Loading from "../Components/Loading";
+import Loading from "../Components/UI/Loading";
 import {articles} from '../Data/articles'
 
 const Articles = () => {

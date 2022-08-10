@@ -1,7 +1,7 @@
 import { Achievement } from "../Components/Achievement";
 import { Student } from "../Components/Student";
 import styles from "./About.module.css";
-import Loading from "../Components/Loading";
+import Loading from "../Components/UI/Loading";
 import { achievements } from "../Data/achievements";
 import { staticTextAbout } from "../Data/staticText";
 import { participants } from "../Data/participants";

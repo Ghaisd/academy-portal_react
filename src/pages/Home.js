@@ -2,19 +2,18 @@ import { Navigation, Pagination, Scrollbar, A11y, Virtual } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Category from "../Components/Category";
 import Article from "../Components/Article";
-import CustomLink from "../Components/CustomLink";
 import Faq from "../Components/Faq";
 import Testimonial from "../Components/Testimonial";
-import styles from "./Home.module.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import Loading from "../Components/Loading";
 import { categories } from "../Data/categories";
 import { faqs } from "../Data/faqs";
 import { testimonials } from "../Data/testimonials";
 import { staticTextHome } from "../Data/staticText";
 import { articles } from "../Data/articles";
+import { Box } from "@mui/system";
+import Button from "../Components/UI/Button";
 
 const {
   headerSectionTextH,
@@ -22,126 +21,173 @@ const {
   categoriesSectionTextH,
   categoriesSectionTextP,
 } = staticTextHome;
+
 const Home = () => {
-  const categoriesRendered = categories.map((category, index) => (
-    <Category
-      key={index}
-      headerText={category.headerText}
-      paragraphText={category.paragraphText}
-      category__icon={category.iconClass}
-    />
-  ));
-
-  const articlesRendered = articles
-    .slice(0, 3)
-    .map((article, index) => (
-      <Article
-        key={index}
-        headline={article.Title}
-        author={article.AuthorName}
-        articleContent={article.Content}
-        src={article.ImageLInk}
-        id={article._id}
-      />
-    ));
-
-  const faqsRendered = faqs.map((faq, index) => (
-    <Faq
-      key={index}
-      headerText={faq.headerText}
-      paragraphText={faq.paragraphText}
-    />
-  ));
-
-  const testimonialsRendered = testimonials.map((testimonial, index) => (
-    <SwiperSlide key={index}>
-      <Testimonial
-        key={index}
-        imageLink={testimonial.image}
-        name={testimonial.name}
-        role={testimonial.role}
-        paragraphText={testimonial.paragraphText}
-      />
-    </SwiperSlide>
-  ));
-
   return (
     <>
-      <header>
-        <div className={`${styles.container} ${styles.header__container}`}>
-          <div className={styles.header__left}>
-            <h1>{headerSectionTextH}</h1>
-            <p className={styles.long__paragraph}>{headerSectionTextP}</p>
-            <CustomLink
-              to="/Contact"
-              className={`btn-secondary ${styles.btn_header}`}
-            >
-              Bli med!
-            </CustomLink>
-          </div>
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6876623560589283328"
-            height="540"
-            width="504"
-            allowFullScreen
-            title="Embedded post"
-          ></iframe>
+      <Box
+        sx={{
+          height: "70vh",
+          pl: "12.5rem",
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          alignItems: "center",
+          gap: "5rem",
+          "p:first-of-type": {
+            m: "1rem 0 1.4rem",
+          },
+        }}
+      >
+        <div>
+          <h1>{headerSectionTextH}</h1>
+          <p>{headerSectionTextP}</p>
+          <Button to={"/Contact"}>Bli med!</Button>
         </div>
-      </header>
+        <iframe
+          src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6876623560589283328"
+          height="540"
+          width="504"
+          allowFullScreen
+          title="Embedded post"
+        ></iframe>
+      </Box>
 
       {/*=========================================Categories=========================================*/}
 
-      <section className={styles.categories}>
-        <div className={`${styles.container} ${styles.categories__container}`}>
-          <div className={styles.categories__left}>
-            <h1>{categoriesSectionTextH}</h1>
-            <p>{categoriesSectionTextP}</p>
-            <div className={styles.categories_btn_wrapper}>
-              <CustomLink
-                to="/About"
-                className={`btn-secondary ${styles.categories_btn}`}
-              >
-                Les mer
-              </CustomLink>
-              <CustomLink
-                to="/AcademyTV"
-                className={`btn-secondary ${styles.categories_btn}`}
-              >
-                AcademyTV{" "}
-              </CustomLink>
-            </div>
-          </div>
+      {/* <Box
+        sx={{
+          pt: "100px",
+          mt: "5rem",
+          height: "35rem",
+          backgroundColor: "#474a48", // var(--color-bg1)   </>
+          pl: "200px",
+        }}
+      > */}
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "40% 60%",
+          height: "35rem",
+          backgroundColor: "#474a48",
+          mt: "5rem",
+          p: "100px 40px 0 200px",
 
-          <div className={styles.categories__right}>{categoriesRendered}</div>
+          "div:first-of-type": {
+            mr: "4rem",
+          },
+          "div>p:first-of-type": {
+            m: "1rem 0 3rem",
+          },
+          "div:last-of-type": {
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: "1.2rem",
+          },
+          "a:nth-of-type(2)": {
+            ml: "1rem",
+          },
+        }}
+      >
+        <div>
+          <h1>{categoriesSectionTextH}</h1>
+          <p>{categoriesSectionTextP}</p>
+
+          <Button to="/About">Les mer</Button>
+          <Button to="/AcademyTV">Academy TV</Button>
+          {/* </Box> */}
         </div>
-      </section>
+        <div>
+          {categories.map((category, index) => (
+            <Category
+              key={index}
+              headerText={category.headerText}
+              paragraphText={category.paragraphText}
+              category__icon={category.iconClass}
+            />
+          ))}
+        </div>
+      </Box>
 
       {/*--=========================================Articles========================================= */}
-
-      <h2 id={styles.articles_header}>Artikler/Nyheter</h2>
-      <Loading DataLength={articles.length}>
-        <section className={styles.articles}>
-          <div className={`${styles.container} ${styles.articles__container}`}>
-            {articlesRendered}
+      <Box
+        sx={{
+          "h2:first-of-type": {
+            width: "20%",
+            pt: "15rem",
+            m: "0 auto",
+          },
+          "section:first-of-type": {
+            ml: "10rem",
+          },
+          "section>div:first-of-type": {
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+          },
+        }}
+      >
+        <h2>Artikler/Nyheter</h2>
+        <section>
+          <div>
+            {articles.slice(0, 3).map((article, index) => (
+              <Article
+                key={index}
+                headline={article.Title}
+                author={article.AuthorName}
+                articleContent={article.Content}
+                src={article.ImageLInk}
+                id={article._id}
+              />
+            ))}
           </div>
         </section>
-      </Loading>
+      </Box>
 
       {/*=========================================FAQs========================================= */}
 
-      <section className={styles.faqs}>
+      <Box
+        sx={{
+          mt: "100px",
+          background: "#474a48", //var(--color-bg1);
+          boxShadow: "inset 0 0 3rem rgba(0, 0, 0, 0.5);",
+          p: "0 120px 100px 240px",
+
+          "h2:first-of-type": {
+            display: "block",
+            width: "50%",
+            m: "20px auto",
+            padding: "2rem",
+          },
+          "div:first-of-type": {
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "1rem",
+          },
+        }}
+      >
         <h2>Frequently Asked Questions</h2>
-        <div className={`${styles.container} ${styles.faqs__container}`}>
-          {faqsRendered}
+        <div>
+          {faqs.map((faq, index) => (
+            <Faq
+              key={index}
+              headerText={faq.headerText}
+              paragraphText={faq.paragraphText}
+            />
+          ))}
         </div>
-      </section>
+      </Box>
 
       {/*=========================================Testimonials========================================= */}
 
-      <section
-        className={`${styles.container} ${styles.testimonials__container} `}
+      <Box
+        sx={{
+          mb: "5rem",
+
+          "h2:first-of-type": {
+            p: "2rem 0 0 30rem",
+          },
+        }}
       >
-        <section className={`container testimonials__container mySwiper`}>
+        <section className={`container mySwiper`}>
           <h2>Testimonials</h2>
           <div className={`swiper-wrapper`}>
             <Swiper
@@ -152,11 +198,21 @@ const Home = () => {
               scrollbar={{ draggable: true }}
               pagination={{ clickable: true }}
             >
-              {testimonialsRendered}
+              {testimonials.map((testimonial, index) => (
+                <SwiperSlide key={index}>
+                  <Testimonial
+                    key={index}
+                    imageLink={testimonial.image}
+                    name={testimonial.name}
+                    role={testimonial.role}
+                    paragraphText={testimonial.paragraphText}
+                  />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </section>
-      </section>
+      </Box>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import styles from "./IndividualArticle.module.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Loading from "../Components/Loading";
+import Loading from "../Components/UI/Loading";
 import {articles} from "../Data/articles";
 
 

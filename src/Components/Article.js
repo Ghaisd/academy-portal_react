@@ -1,5 +1,5 @@
 import styles from "./Article.module.css";
-import CustomLink from "./CustomLink";
+import CustomLink from "./UI/CustomLink";
 
 const Article = ({ src, headline, author, articleContent, id }) => {
   return (

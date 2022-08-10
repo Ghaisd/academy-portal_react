@@ -1,5 +1,5 @@
 import styles from './Student.module.css'
-import CustomLink from "./CustomLink";
+import CustomLink from "./UI/CustomLink";
 
 export const Student = ({src, studentName, smallInfo, gitAccount}) => {
     return (

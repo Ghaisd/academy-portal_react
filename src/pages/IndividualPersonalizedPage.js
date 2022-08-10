@@ -1,6 +1,6 @@
 import styles from "./IndividualPersonalizedPage.module.css";
 import { useParams } from "react-router-dom";
-import Loading from "../Components/Loading";
+import Loading from "../Components/UI/Loading";
 import { participants } from "../Data/participants";
 import { useEffect, useState } from "react";
 
