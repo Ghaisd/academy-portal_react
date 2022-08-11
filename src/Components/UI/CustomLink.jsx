@@ -1,14 +1,26 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
-import styles from './CustomLink.module.css';
 
 const CustomLink = ({ to, children, ...props }) => {
   return (
-    <li className={styles.link_contact}>
-      <Link to={to} {...props}>
-        {children}
-      </Link>
-    </li>
+    <Box sx={{
+      li: {
+        listStyleType: 'none',
+        boxSizing: 'border-box',
+      },
+      'a:hover': {
+        color: 'grey',
+        transition: 'all 400ms ease',
+      },
+    }}
+    >
+      <li>
+        <Link style={{ textDecoration: 'none' }} to={to} {...props}>
+          {children}
+        </Link>
+      </li>
+    </Box>
   );
 };
 

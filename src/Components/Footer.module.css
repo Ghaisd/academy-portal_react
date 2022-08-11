@@ -11,7 +11,7 @@ footer {
   margin-left: 180px;
 }
 
-.footer__container > div h4 {
+.footer__container>div h4 {
   margin-bottom: 1.2rem;
 }
 
@@ -19,6 +19,7 @@ footer {
   margin-top: 3rem;
   width: 300px;
 }
+
 .footer__1 p {
   margin: 0 0 2rem;
 }
@@ -64,8 +65,9 @@ footer ul li a:hover {
 }
 
 .permalinks {
-  text-decoration: none;
+  text-decoration: none !important;
 }
+
 .permalinks a:hover {
   text-decoration: none;
   transition: var(--transition);

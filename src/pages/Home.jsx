@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <>
       <Box
-        height="60vh"
+        height="70vh"
         pl="12.5rem"
         display="grid"
         gridTemplateColumns="1fr 1fr"
