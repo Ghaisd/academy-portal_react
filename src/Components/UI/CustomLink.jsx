@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
-import styles from "./CustomLink.module.css";
+/* eslint-disable react/jsx-props-no-spreading */
+import { Link } from 'react-router-dom';
+import styles from './CustomLink.module.css';
 
 const CustomLink = ({ to, children, ...props }) => {
   return (

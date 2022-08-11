@@ -1,6 +1,6 @@
-import styles from "./Video.module.css";
+import styles from './Video.module.css';
 
-export const Video = ({headerText, src, title}) => {
+const Video = ({ headerText, src, title }) => {
   return (
     <div className={styles.video}>
       <h1>{headerText}</h1>
@@ -8,7 +8,9 @@ export const Video = ({headerText, src, title}) => {
         src={src}
         allowFullScreen
         title={title}
-      ></iframe>
+      />
     </div>
   );
 };
+
+export default Video;

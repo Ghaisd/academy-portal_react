@@ -20,9 +20,9 @@
   bottom: 4rem;
   height: 35rem;
 }
-.contact__icons {
+/* .contact__icons {
   margin-bottom: 0.4rem;
-}
+} */
 .aside__image {
   position: relative;
 }
@@ -41,12 +41,12 @@
   margin-bottom: 2rem;
 }
 
-.contact__details li {
+/* .contact__details li {
   display: flex;
   gap: 1rem;
   align-items: center;
   margin-bottom: 1rem;
-}
+} */
 
 .contact__socials {
   display: flex;

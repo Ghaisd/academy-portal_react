@@ -1,11 +1,11 @@
+import { Link } from 'react-router-dom';
 import CustomLink from './UI/CustomLink';
-import styles from "./Footer.module.css";
-import { Link } from "react-router-dom";
+import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
     <footer>
-      <div className={`${styles.container} ${styles.footer__container}`}>
+      <div className={styles.footer__container}>
         <div className={styles.footer__1}>
           <Link to="/" className={styles.site_title}>
             <h4>IKOMM ACADEMY</h4>
@@ -40,12 +40,12 @@ const Footer = () => {
           <ul className={styles.footer__socials}>
             <li>
               <a href="https://www.facebook.com/ikommas/">
-                <i className={`bi bi-facebook`}></i>
+                <i className="bi bi-facebook" />
               </a>
             </li>
             <li>
               <a href="https://no.linkedin.com/company/ikomm?original_referer=https%3A%2F%2Fwww.ikomm.no%2F">
-                <i className={`bi bi-linkedin`}></i>
+                <i className="bi bi-linkedin" />
               </a>
             </li>
           </ul>

@@ -19,17 +19,17 @@
 }
 
 /* ******* TEAM ******* */
-.ClimbingBoxLoader {
+/* .ClimbingBoxLoader {
   top: 75%;
   padding-left: 49%;
-}
+} */
 
 .team {
   background: var(--color-bg1);
   box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.5);
 }
 
-#students_header {
+.students_header {
   padding-left: 780px;
   padding-top: 50px;
   padding-bottom: 50px;

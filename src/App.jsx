@@ -9,9 +9,9 @@ import IndividualArticle from './pages/IndividualArticle';
 import IndividualPersonalizedPage from './pages/IndividualPersonalizedPage';
 import Footer from './Components/Footer';
 import Login from './pages/Login';
-import { useScrollToTop } from './hooks/useScrollToTop';
+import useScrollToTop from './hooks/useScrollToTop';
 
-function App(props) {
+const App = () => {
   useScrollToTop();
   return (
     <>
@@ -32,6 +32,6 @@ function App(props) {
       <Footer />
     </>
   );
-}
+};
 
 export default App;

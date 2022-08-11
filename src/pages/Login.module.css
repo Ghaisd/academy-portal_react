@@ -1,6 +1,6 @@
-::selection {
+/* ::selection {
   background: rgba(26, 188, 156, 0.3);
-}
+} */
 
 .container {
   width: 200%;
@@ -87,7 +87,7 @@ form .row input::placeholder {
   text-decoration: underline;
 }
 
-.wrapper form .button input {
+/* .wrapper form .button input {
   color: #fff;
   font-size: 20px;
   font-weight: 500;
@@ -99,9 +99,9 @@ form .row input::placeholder {
 
 form .button input:hover {
   background: #12876f;
-}
+} */
 
-.wrapper form .signup-link {
+/* .wrapper form .signup-link {
   text-align: center;
   margin-top: 20px;
   font-size: 17px;
@@ -114,14 +114,14 @@ form .button input:hover {
 
 form .signup-link a:hover {
   text-decoration: underline;
-}
+} */
 
 .invalid {
   color: #000;
   background: #fbdada;
 }
 
-#password_reset {
+.password_reset {
   color: black;
 }
 .btn_valid {

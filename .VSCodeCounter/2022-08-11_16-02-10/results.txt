@@ -1,0 +1,96 @@
+Date : 2022-08-11 16:02:10
+Directory : c:\academy-portal_react
+Total : 55 files,  31608 codes, 76 comments, 234 blanks, all 31918 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          3 |     29,529 |         10 |          2 |     29,541 |
+| JavaScript React   |         22 |        876 |          5 |        103 |        984 |
+| JavaScript         |         10 |        437 |          0 |         36 |        473 |
+| CSS                |         12 |        424 |         56 |         86 |        566 |
+| XML                |          4 |        237 |          0 |          1 |        238 |
+| JSON with Comments |          1 |         53 |          1 |          0 |         54 |
+| YAML               |          2 |         31 |          4 |          4 |         39 |
+| HTML               |          1 |         21 |          0 |          2 |         23 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                        | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                           |         55 |     31,608 |         76 |        234 |     31,918 |
+| .github                                                                     |          2 |         31 |          4 |          4 |         39 |
+| .github\workflows                                                           |          2 |         31 |          4 |          4 |         39 |
+| public                                                                      |          5 |        258 |          0 |          3 |        261 |
+| public\images                                                               |          4 |        237 |          0 |          1 |        238 |
+| src                                                                         |         44 |      1,737 |         61 |        225 |      2,023 |
+| src\Components                                                              |         18 |        542 |         12 |         85 |        639 |
+| src\Components\UI                                                           |          4 |         67 |          2 |         10 |         79 |
+| src\Data                                                                    |          8 |        414 |          0 |         24 |        438 |
+| src\hooks                                                                   |          2 |         23 |          0 |         12 |         35 |
+| src\pages                                                                   |         13 |        675 |         47 |         95 |        817 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                    | language           | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\academy-portal_react\.eslintrc.json                                      | JSON with Comments |         53 |          1 |          0 |         54 |
+| c:\academy-portal_react\.github\workflows\firebase-hosting-merge.yml        | YAML               |         17 |          2 |          2 |         21 |
+| c:\academy-portal_react\.github\workflows\firebase-hosting-pull-request.yml | YAML               |         14 |          2 |          2 |         18 |
+| c:\academy-portal_react\firebase.json                                       | JSON               |          7 |         10 |          0 |         17 |
+| c:\academy-portal_react\package-lock.json                                   | JSON               |     29,470 |          0 |          1 |     29,471 |
+| c:\academy-portal_react\package.json                                        | JSON               |         52 |          0 |          1 |         53 |
+| c:\academy-portal_react\public\images\Academy Logo.svg                      | XML                |        234 |          0 |          1 |        235 |
+| c:\academy-portal_react\public\images\about_achievements.svg                | XML                |          1 |          0 |          0 |          1 |
+| c:\academy-portal_react\public\images\contact.svg                           | XML                |          1 |          0 |          0 |          1 |
+| c:\academy-portal_react\public\images\header.svg                            | XML                |          1 |          0 |          0 |          1 |
+| c:\academy-portal_react\public\index.html                                   | HTML               |         21 |          0 |          2 |         23 |
+| c:\academy-portal_react\src\App.jsx                                         | JavaScript React   |         35 |          0 |          3 |         38 |
+| c:\academy-portal_react\src\Components\Achievement.jsx                      | JavaScript React   |         13 |          0 |          3 |         16 |
+| c:\academy-portal_react\src\Components\Achievement.module.css               | CSS                |         22 |          0 |          4 |         26 |
+| c:\academy-portal_react\src\Components\Article.jsx                          | JavaScript React   |         53 |          0 |          4 |         57 |
+| c:\academy-portal_react\src\Components\Category.jsx                         | JavaScript React   |         30 |          0 |          3 |         33 |
+| c:\academy-portal_react\src\Components\Faq.jsx                              | JavaScript React   |         35 |          0 |          4 |         39 |
+| c:\academy-portal_react\src\Components\Footer.jsx                           | JavaScript React   |         55 |          0 |          8 |         63 |
+| c:\academy-portal_react\src\Components\Footer.module.css                    | CSS                |         70 |          0 |         15 |         85 |
+| c:\academy-portal_react\src\Components\Navbar.jsx                           | JavaScript React   |         42 |          0 |          4 |         46 |
+| c:\academy-portal_react\src\Components\Navbar.module.css                    | CSS                |         11 |          0 |          3 |         14 |
+| c:\academy-portal_react\src\Components\Student.jsx                          | JavaScript React   |         32 |          0 |          4 |         36 |
+| c:\academy-portal_react\src\Components\Student.module.css                   | CSS                |         53 |         10 |         13 |         76 |
+| c:\academy-portal_react\src\Components\Testimonial.jsx                      | JavaScript React   |         25 |          0 |          4 |         29 |
+| c:\academy-portal_react\src\Components\UI\Button.jsx                        | JavaScript React   |         24 |          0 |          3 |         27 |
+| c:\academy-portal_react\src\Components\UI\CustomLink.jsx                    | JavaScript React   |         12 |          1 |          3 |         16 |
+| c:\academy-portal_react\src\Components\UI\CustomLink.module.css             | CSS                |         11 |          0 |          1 |         12 |
+| c:\academy-portal_react\src\Components\UI\Loading.jsx                       | JavaScript React   |         20 |          1 |          3 |         24 |
+| c:\academy-portal_react\src\Components\Video.jsx                            | JavaScript React   |         14 |          0 |          3 |         17 |
+| c:\academy-portal_react\src\Components\Video.module.css                     | CSS                |         20 |          0 |          3 |         23 |
+| c:\academy-portal_react\src\Data\achievements.js                            | JavaScript         |         23 |          0 |          2 |         25 |
+| c:\academy-portal_react\src\Data\articles.js                                | JavaScript         |        105 |          0 |          2 |        107 |
+| c:\academy-portal_react\src\Data\categories.js                              | JavaScript         |         27 |          0 |          2 |         29 |
+| c:\academy-portal_react\src\Data\faqs.js                                    | JavaScript         |         33 |          0 |          6 |         39 |
+| c:\academy-portal_react\src\Data\participants.js                            | JavaScript         |        127 |          0 |          2 |        129 |
+| c:\academy-portal_react\src\Data\staticText.js                              | JavaScript         |         33 |          0 |          1 |         34 |
+| c:\academy-portal_react\src\Data\testimonials.js                            | JavaScript         |         33 |          0 |          2 |         35 |
+| c:\academy-portal_react\src\Data\videos.js                                  | JavaScript         |         33 |          0 |          7 |         40 |
+| c:\academy-portal_react\src\GlobalStyles.css                                | CSS                |         36 |          0 |          4 |         40 |
+| c:\academy-portal_react\src\hooks\useScrollPosition.js                      | JavaScript         |         14 |          0 |          8 |         22 |
+| c:\academy-portal_react\src\hooks\useScrollToTop.js                         | JavaScript         |          9 |          0 |          4 |         13 |
+| c:\academy-portal_react\src\index.jsx                                       | JavaScript React   |         12 |          2 |          2 |         16 |
+| c:\academy-portal_react\src\pages\About.jsx                                 | JavaScript React   |         56 |          0 |          6 |         62 |
+| c:\academy-portal_react\src\pages\About.module.css                          | CSS                |         31 |          5 |          8 |         44 |
+| c:\academy-portal_react\src\pages\AcademyTV.jsx                             | JavaScript React   |         16 |          0 |          3 |         19 |
+| c:\academy-portal_react\src\pages\AcademyTV.module.css                      | CSS                |          8 |          0 |          3 |         11 |
+| c:\academy-portal_react\src\pages\Articles.jsx                              | JavaScript React   |         26 |          0 |          4 |         30 |
+| c:\academy-portal_react\src\pages\Articles.module.css                       | CSS                |          9 |          0 |          2 |         11 |
+| c:\academy-portal_react\src\pages\Contact.jsx                               | JavaScript React   |         52 |          0 |          5 |         57 |
+| c:\academy-portal_react\src\pages\Contact.module.css                        | CSS                |         67 |         11 |         14 |         92 |
+| c:\academy-portal_react\src\pages\Home.jsx                                  | JavaScript React   |        136 |          0 |          9 |        145 |
+| c:\academy-portal_react\src\pages\IndividualArticle.jsx                     | JavaScript React   |         54 |          0 |          7 |         61 |
+| c:\academy-portal_react\src\pages\IndividualPersonalizedPage.jsx            | JavaScript React   |         46 |          0 |          5 |         51 |
+| c:\academy-portal_react\src\pages\Login.jsx                                 | JavaScript React   |         88 |          1 |         13 |        102 |
+| c:\academy-portal_react\src\pages\Login.module.css                          | CSS                |         86 |         30 |         16 |        132 |
+| Total                                                                       |                    |     31,608 |         76 |        234 |     31,918 |
++-----------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
