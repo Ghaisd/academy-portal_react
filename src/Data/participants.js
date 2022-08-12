@@ -103,7 +103,7 @@ const participants = [
         $numberLong: '1653069427039',
       },
     },
-    Image: '/images/Steffen4.png',
+    Image: '/images/Steffen.png',
     GithubLink: 'https://github.com/Nullcano',
     LinkedinLink: 'A progamming student at Ikomm academy',
   },

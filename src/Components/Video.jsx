@@ -1,15 +1,13 @@
-import styles from './Video.module.css';
+import { CardMedia } from '@mui/material';
 
-const Video = ({ headerText, src, title }) => {
+const Video = ({ src }) => {
   return (
-    <div className={styles.video}>
-      <h1>{headerText}</h1>
-      <iframe
-        src={src}
-        allowFullScreen
-        title={title}
-      />
-    </div>
+    <CardMedia
+      component="iframe"
+      src={src}
+      allowFullScreen
+      height="250rem"
+    />
   );
 };
 

@@ -1,17 +1,15 @@
+import { Box } from '@mui/material';
 import Video from '../Components/Video';
 import videos from '../Data/videos';
-import styles from './AcademyTV.module.css';
 
 const AcademyTV = () => {
-  const videosRendered = videos.map((video) => (
-    <Video key={video.title} headerText={video.headerText} src={video.src} title={video.title} />
-  ));
   return (
-    <section className={styles.videos}>
-      <div className={styles.videos__container}>
-        {videosRendered}
-      </div>
-    </section>
+    <Box display="grid" gap="2rem" gridTemplateColumns="repeat(3, 1fr)" my="10rem">
+      {videos.map((video) => (
+        <Video key={video[0]} src={video} />
+      ))}
+    </Box>
+
   );
 };
 

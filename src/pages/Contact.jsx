@@ -1,55 +1,98 @@
-import styles from './Contact.module.css';
+import {
+  Button, Input, Link, TextField, Typography,
+} from '@mui/material';
+import { Box } from '@mui/system';
 
 const Contact = () => {
   return (
-    <section>
-      <div className={styles.contact__container}>
-        <aside className={styles.contact__aside}>
-          <div className={styles.aside__image}>
-            <img src="/images/contact.svg" alt="Contact" />
-          </div>
-          <h2>Kontakt oss</h2>
-          <p>
-            Kontakt oss for mer informasjon.
-          </p>
+    <Box
+      bgcolor="#474a48"
+      p="4rem"
+      display="grid"
+      gap="4rem"
+      m="7rem auto"
+      maxWidth="70vw"
+    >
+      <Box
+        bgcolor="#537a5a"
+        borderRadius="1rem"
+        pl="25vw"
+      >
+        <Box
+          component="img"
+          src="/images/contact.svg"
+          alt="Contact"
+          width="300px"
+        />
+        <Typography borderBottom={1} variant="h4">Kontakt oss</Typography>
+        <Typography variant="h6">
+          Kontakt oss for mer informasjon.
+        </Typography>
+        <Link ml="2rem" color="#fff" borderRadius="5%" fontSize="2.2rem" href="https://www.facebook.com/ikommas/" target="_blank" rel="noreferrer">
+          <i className="bi bi-facebook" />
+        </Link>
+        <Link ml="2rem" color="#fff" borderRadius="5%" fontSize="2.2rem" href="https://linkedin.com" target="_blank" rel="noreferrer">
+          <i className="bi bi-linkedin" />
+        </Link>
 
-          <ul className={styles.contact__socials}>
-            <li>
-              <a
-                href="https://www.facebook.com/ikommas/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i
-                  className="bi bi-facebook"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://no.linkedin.com/company/ikomm?original_referer=https%3A%2F%2Fwww.ikomm.no%2F"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i
-                  className="bi bi-linkedin"
-                />
-              </a>
-            </li>
-          </ul>
-        </aside>
+      </Box>
 
-        <form className="contact__form" action="https://formspree.io/f/xeqnvgjb" method="POST">
-          <div className={styles.form__name}>
-            <input type="text" name="First Name" placeholder="Fornavn" required />
-            <input type="text" name="Last Name" placeholder="Etternavn" required />
-          </div>
-          <input type="email" name="Email Address" placeholder="Din epostadresse" required />
-          <textarea name="Message" rows="7" placeholder="Beskjed" required />
-          <button type="submit" className="btn btn-success mt-3">Sende melding</button>
-        </form>
-      </div>
-    </section>
+      <Box
+        component="form"
+        action="https://formspree.io/f/xeqnvgjb"
+        method="POST"
+        sx={{
+          '& > div >*,& >div >div>*': {
+            width: '100%',
+            p: '1rem',
+            bgcolor: '#2c302e',
+            color: 'lightgray',
+          },
+        }}
+      >
+        <Box
+          display="flex"
+          justifyContent="center"
+          sx={{
+          }}
+        >
+          <Input
+            type="text"
+            name="First Name"
+            placeholder="Fornavn"
+            required
+          />
+          <Input
+            type="text"
+            name="Last Name"
+            placeholder="Etternavn"
+            required
+          />
+        </Box>
+        <Box mb="1rem">
+          <Input
+            type="email"
+            name="Email Address"
+            placeholder="Din epostadresse"
+            required
+          />
+          <TextField
+            name="Message"
+            multiline
+            rows="7"
+            placeholder="Beskjed"
+            required
+          />
+        </Box>
+        <Button
+          type="submit"
+          variant="contained"
+          color="success"
+        >
+          sende melding
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

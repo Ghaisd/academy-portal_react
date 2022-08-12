@@ -8,7 +8,6 @@ import Contact from './pages/Contact';
 import IndividualArticle from './pages/IndividualArticle';
 import IndividualPersonalizedPage from './pages/IndividualPersonalizedPage';
 import Footer from './Components/Footer';
-import Login from './pages/Login';
 import useScrollToTop from './hooks/useScrollToTop';
 
 const App = () => {
@@ -24,7 +23,6 @@ const App = () => {
           <Route path="/About" element={<About />} />
           <Route path="/AcademyTV" element={<AcademyTV />} />
           <Route path="/Contact" element={<Contact />} />
-          <Route path="/Login" element={<Login />} />
           <Route path="/Articles/:id" element={<IndividualArticle />} />
           <Route path="/about/:id" element={<IndividualPersonalizedPage />} />
         </Routes>

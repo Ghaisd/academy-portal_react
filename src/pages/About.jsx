@@ -11,7 +11,7 @@ const { achievementsSectionTextP } = staticTextAbout;
 const About = () => {
   return (
     <>
-      <Typography align="center" py="2rem" variant="h2">Årets kull</Typography>
+      <Typography align="center" mt="2rem" py="4rem" variant="h2">Årets kull</Typography>
       <Box display="grid" gridTemplateColumns="repeat(4, 1fr)" gap="2rem">
 
         {participants.map((student) => (

@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom';
 const CustomLink = ({ to, children, ...props }) => {
   return (
     <Box sx={{
+
       li: {
         listStyleType: 'none',
         boxSizing: 'border-box',
+      },
+      a: {
+        cursor: 'pointer',
+        color: 'white',
       },
       'a:hover': {
         color: 'grey',
