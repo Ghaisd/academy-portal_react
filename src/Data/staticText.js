@@ -1,6 +1,6 @@
 export const staticTextHome = {
   headerSectionTextH:
-    " Det handler om å gi flinke folk en sjanse, og å finne flinke folksom tar den.",
+    ' Det handler om å gi flinke folk en sjanse, og å finne flinke folksom tar den.',
   headerSectionTextP: `Med Ikomm Academy har Ikomm i tett samarbeid med NAV Lillehammer
     bevist at det fortsatt finnes ekte vinn-vinn-situasjoner. Kort
     fortalt henter vi med Ikomm Academy kodetalenter ut av
@@ -10,7 +10,7 @@ export const staticTextHome = {
     får folk ut i arbeid, samfunnet utnytter ressursene våre bedre, og
     ikke minst får kandidatene selv en helt unik mulighet til å slå
     seg opp i en karriere full av fremtidsmuligheter.`,
-  categoriesSectionTextH: "Hva fokuserer vi på i Ikomm Academy?",
+  categoriesSectionTextH: 'Hva fokuserer vi på i Ikomm Academy?',
   categoriesSectionTextP: ` Vi tror det er viktig å ikke bare fokusere på tekniske
     ferdigheter, når man skal løfte utviklertalenter opp fra et
     hobby-nivå til et profesjonelt junior-nivå. Å jobbe som utvikler i
