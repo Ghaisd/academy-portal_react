@@ -16,10 +16,10 @@ const AchievementsSection = () => {
       />
       <Box>
         <Typography variant="h3">Resultater</Typography>
-        <Typography>
+        <Typography py={2}>
           {achievementsSectionTextP}
         </Typography>
-        <Box display="grid" gridTemplateColumns="repeat(2, 4fr)" gap="1.2rem">
+        <Box display="grid" gridTemplateColumns="repeat(2, 4fr)" gap={2.4}>
           {achievements.map((achievement) => (
             <Achievement
               key={achievement.nr}

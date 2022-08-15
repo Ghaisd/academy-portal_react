@@ -6,7 +6,7 @@ const Video = ({ src }) => {
       component="iframe"
       src={src}
       allowFullScreen
-      height="250rem"
+      height={250}
     />
   );
 };

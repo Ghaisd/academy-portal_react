@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import Loading from '../Components/UI/Loading';
 import articles from '../Data/articles';
 
 const IndividualArticle = () => {
@@ -15,14 +14,13 @@ const IndividualArticle = () => {
   }, [id, article.Title, setArticle]);
 
   return (
-    <Loading DataLength={article}>
+    <>
       <Box
         component="img"
-        sx={{
-          height: '48rem',
-          display: 'block',
-          m: '3rem auto',
-        }}
+        height={768}
+        display="block"
+        my={6}
+        mx="auto"
         alt="Article"
         src={[article.ImageLInk]}
       />
@@ -33,19 +31,19 @@ const IndividualArticle = () => {
         component="img"
         alt="Article"
         src={article.AuthorImageLink}
-        mb="3rem"
-        width="8rem"
+        mb={6}
+        width={128}
       />
-      <Box display="inline-block" ml="1rem" textTransform="uppercase">
+      <Box display="inline-block" ml={2} textTransform="uppercase">
         <Typography variant="h5">{article.AuthorName}</Typography>
-        <Typography pt="1rem">May 18, 2022</Typography>
+        <Typography pt={2}>May 18, 2022</Typography>
       </Box>
 
       <Typography
         variant="h5"
-        m="0rem 0 6rem"
-        pl="14rem"
-        lineHeight="2.5rem"
+        mb={12}
+        mx="auto"
+        lineHeight={2}
         sx={{
           inlineSize: '80vw',
         }}
@@ -53,7 +51,7 @@ const IndividualArticle = () => {
         {article.Content}
 
       </Typography>
-    </Loading>
+    </>
   );
 };
 

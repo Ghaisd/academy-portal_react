@@ -6,14 +6,12 @@ import faqs from '../../Data/faqs';
 const FaqsSection = () => {
   return (
     <Box
-      mt="6.25rem"
+      mt={12.5}
       bgcolor="#474a48"
-      sx={{
-        p: '4rem 20rem',
-      }}
+      p="4rem 20rem"
     >
-      <Typography variant="h3" align="center" mb="4rem">Frequently Asked Questions</Typography>
-      <Box display="grid" gridTemplateColumns="1fr 1fr" gap="2rem">
+      <Typography variant="h3" align="center" mb={8}>Frequently Asked Questions</Typography>
+      <Box display="grid" gridTemplateColumns="1fr 1fr" gap={4}>
         {faqs.map((faq) => (
           <Faq
             key={faq.headerText}

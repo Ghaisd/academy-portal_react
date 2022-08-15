@@ -4,7 +4,7 @@ import articles from '../Data/articles';
 
 const Articles = () => {
   return (
-    <Box display="grid" gridTemplateColumns="repeat(3, 1fr)" m="1rem 0 4rem 7rem">
+    <Box display="grid" gridTemplateColumns="repeat(3, 1fr)" m={18} ml={32}>
       {articles.map((article) => (
         <Article
           key={article.id}

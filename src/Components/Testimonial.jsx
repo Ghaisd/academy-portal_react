@@ -5,7 +5,7 @@ const Testimonial = ({
   imageLink, name, role, paragraphText,
 }) => {
   return (
-    <Box mt="3rem">
+    <Box mt={6}>
       <Avatar
         alt="Remy Sharp"
         src={imageLink}
@@ -14,9 +14,9 @@ const Testimonial = ({
 
       <Box textAlign="center">
         <Typography variant="h6">{name}</Typography>
-        <Typography fontSize="12px" p="0.5rem 0 1rem">{role}</Typography>
+        <Typography fontSize={12} pt={1} pb={2}>{role}</Typography>
       </Box>
-      <Box bgcolor="#537a5a" p="2rem" borderRadius="20%">
+      <Box bgcolor="#537a5a" p={4} borderRadius={5}>
         <Typography>
           {paragraphText}
         </Typography>

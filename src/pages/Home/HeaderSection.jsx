@@ -1,6 +1,6 @@
 import { CardMedia, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import Button from '../../Components/UI/Button';
+import CustomButton from '../../Components/UI/CustomButton';
 import { staticTextHome } from '../../Data/staticText';
 
 const {
@@ -11,17 +11,17 @@ const {
 const Header = () => {
   return (
     <Box
-      height="70vh"
-      pl="12.5rem"
+      height={800}
+      pl={25}
       display="grid"
       gridTemplateColumns="1fr 1fr"
       alignItems="center"
-      gap="5rem"
+      gap={10}
     >
       <Box>
         <Typography variant="h3">{headerSectionTextH}</Typography>
-        <Typography variant="h6" sx={{ m: '1rem 0 1.4rem' }}>{headerSectionTextP}</Typography>
-        <Button to="/Contact">Bli med!</Button>
+        <Typography variant="h6" mt={3} mb={2.8}>{headerSectionTextP}</Typography>
+        <CustomButton to="/Contact">Bli med!</CustomButton>
       </Box>
       <CardMedia
         sx={{ height: 540, width: 504 }}

@@ -4,7 +4,7 @@ import videos from '../Data/videos';
 
 const AcademyTV = () => {
   return (
-    <Box display="grid" gap="2rem" gridTemplateColumns="repeat(3, 1fr)" my="10rem">
+    <Box display="grid" gap={4} gridTemplateColumns="repeat(3, 1fr)" my={20}>
       {videos.map((video) => (
         <Video key={video[0]} src={video} />
       ))}

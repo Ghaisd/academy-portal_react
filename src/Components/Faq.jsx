@@ -17,7 +17,7 @@ const Faq = ({ headerText, paragraphText }) => {
   };
   return (
     <Box
-      p="2rem"
+      p={4}
       bgcolor="#537a5a"
       onClick={SetCssClasses}
       sx={{
@@ -26,11 +26,11 @@ const Faq = ({ headerText, paragraphText }) => {
         },
       }}
     >
-      <Box alignSelf="flex-start" fontSize="1.2rem">
+      <Box>
         <i className={faqIconClassNames} />
-        <Typography display="inline-block" pl="0.5rem" variant="h6">{headerText}</Typography>
+        <Typography display="inline-block" ml={1} variant="h6">{headerText}</Typography>
       </Box>
-      <Typography pt="1rem" className={displayMode}>{paragraphText}</Typography>
+      <Typography pt={2} className={displayMode}>{paragraphText}</Typography>
     </Box>
   );
 };

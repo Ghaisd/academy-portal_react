@@ -6,7 +6,7 @@ import articles from '../../Data/articles';
 const ArticlesSection = () => {
   return (
     <>
-      <Typography variant="h3" align="center" pt="12rem">Artikler/Nyheter</Typography>
+      <Typography variant="h3" align="center" pt={32}>Artikler/Nyheter</Typography>
       <Box justifyItems="center" display="grid" gridTemplateColumns="repeat(3, 1fr)">
         {articles.slice(0, 3).map((article) => (
           <Article

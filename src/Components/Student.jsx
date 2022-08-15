@@ -1,11 +1,12 @@
-import { Link, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import CustomIcon from './UI/CustomIcon';
 
 const Student = ({
-  src, studentName, smallInfo, gitAccount, LinkedinLink,
+  src, studentName, smallInfo, GithubLink, LinkedinLink,
 }) => {
   return (
-    <Box border={10} borderColor="#537a5a" bgcolor="#909590" mr="7rem">
+    <Box border={10} borderColor="#537a5a" bgcolor="#909590" mr={14}>
       <Box display="flex" alignItems="center">
         <Box
           component="img"
@@ -14,20 +15,14 @@ const Student = ({
           height="300px"
         />
         <Box display="flex" flexDirection="column" justifyContent="center">
-          <Link pt="1rem" color="#fff" borderRadius="5%" fontSize="2.2rem" href={`/About/${studentName}`}>
-            <i className="bi bi-file-earmark-person" />
-          </Link>
-          <Link color="#fff" borderRadius="5%" fontSize="2.2rem" href={LinkedinLink} target="_blank" rel="noreferrer">
-            <i className="bi bi-linkedin" />
-          </Link>
-          <Link color="#fff" borderRadius="5%" fontSize="2.2rem" href={{ gitAccount }} target="_blank" rel="noreferrer">
-            <i className="bi bi-github" />
-          </Link>
+          <CustomIcon href={`/About/${studentName}`} iconType="bi bi-file-earmark-person" />
+          <CustomIcon href={LinkedinLink} iconType="bi bi-linkedin" />
+          <CustomIcon href={GithubLink} iconType="bi bi-github" />
         </Box>
       </Box>
       <Box>
-        <Typography pt="1rem" variant="h4" align="center">{studentName}</Typography>
-        <Typography color="#000" pl="1rem" variant="h6">{smallInfo}</Typography>
+        <Typography pt={2} variant="h4" align="center">{studentName}</Typography>
+        <Typography color="#109" pl={2} variant="h6">{smallInfo}</Typography>
       </Box>
     </Box>
   );

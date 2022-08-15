@@ -13,8 +13,8 @@ import testimonials from '../../Data/testimonials';
 const TestimonialsSection = () => {
   return (
     <>
-      <Typography variant="h3" align="center" pt="2rem">Testimonials</Typography>
-      <Box className="container" pb="2rem">
+      <Typography variant="h3" align="center" pt={4}>Testimonials</Typography>
+      <Box className="container" pb={4}>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Virtual]}
           spaceBetween={50}
