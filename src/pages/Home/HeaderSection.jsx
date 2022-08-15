@@ -2,6 +2,8 @@ import { CardMedia, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import CustomButton from '../../Components/UI/CustomButton';
 import { staticTextHome } from '../../Data/staticText';
+// eslint-disable-next-line import/no-cycle
+import { routes } from '../../App';
 
 const {
   headerSectionTextH,
@@ -21,7 +23,7 @@ const HeaderSection = () => {
       <Box>
         <Typography variant="h3">{headerSectionTextH}</Typography>
         <Typography variant="h6" mt={3} mb={2.8}>{headerSectionTextP}</Typography>
-        <CustomButton to="/Contact">Bli med!</CustomButton>
+        <CustomButton to={routes.Contact}>Bli med!</CustomButton>
       </Box>
       <CardMedia
         sx={{ height: 540, width: 504 }}

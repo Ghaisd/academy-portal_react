@@ -4,6 +4,7 @@ import Category from '../../Components/Category';
 import categories from '../../Data/categories';
 import { staticTextHome } from '../../Data/staticText';
 import CustomButton from '../../Components/UI/CustomButton';
+// eslint-disable-next-line import/no-cycle
 import { routes } from '../../App';
 
 const {
@@ -26,7 +27,7 @@ const CategoriesSection = () => {
         <Typography variant="h3">{categoriesSectionTextH}</Typography>
         <Typography mt={2} mb={6} variant="h6">{categoriesSectionTextP}</Typography>
         <CustomButton to={routes.About}>Les mer</CustomButton>
-        <CustomButton to="/AcademyTV" styles={{ marginLeft: ' 1rem ' }}>Academy TV</CustomButton>
+        <CustomButton to={routes.AcademyTV} styles={{ marginLeft: ' 1rem ' }}>Academy TV</CustomButton>
       </Box>
 
       <Box

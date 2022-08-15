@@ -1,5 +1,7 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
+// eslint-disable-next-line import/no-cycle
+import { routes } from '../App';
 import CustomButton from './UI/CustomButton';
 
 const Article = ({
@@ -42,7 +44,7 @@ const Article = ({
         <Typography mt={1.2}>{articleContent}</Typography>
       </Box>
       <CustomButton
-        to={`/Articles/${id}`}
+        to={`${routes.Articles}/${id}`}
         styles={{
           marginBottom: '1rem', background: '#dc3545', padding: '1rem 2rem', borderRadius: '5%',
         }}
