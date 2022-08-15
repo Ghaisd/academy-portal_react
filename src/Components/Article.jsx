@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import Button from './UI/Button';
+import CustomButton from './UI/CustomButton';
 
 const Article = ({
   src, headline, author, articleContent, id,
@@ -13,8 +13,8 @@ const Article = ({
       display="grid"
       gridTemplateRows="auto 1fr auto"
       justifyItems="center"
-      width="420px"
-      mt="100px"
+      width={420}
+      mt={6.25}
       sx={{
         '&:hover': {
           bgcolor: 'transparent',
@@ -26,8 +26,8 @@ const Article = ({
       <Box
         component="img"
         sx={{
-          width: '100%',
-          height: '16.875rem',
+          width: 1,
+          height: 270,
           display: 'block',
         }}
         alt="article"
@@ -39,16 +39,16 @@ const Article = ({
           Skrevet av :
           {` ${author}`}
         </small>
-        <Typography m="1.2rem 0 2rem">{articleContent}</Typography>
+        <Typography mt={1.2}>{articleContent}</Typography>
       </Box>
-      <Button
+      <CustomButton
         to={`/Articles/${id}`}
         styles={{
           marginBottom: '1rem', background: '#dc3545', padding: '1rem 2rem', borderRadius: '5%',
         }}
       >
         Les Mer
-      </Button>
+      </CustomButton>
     </Box>
   );
 };

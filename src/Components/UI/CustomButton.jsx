@@ -1,9 +1,9 @@
-import ButtonMui from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
-const Button = ({ to, styles, children }) => {
+const CustomButton = ({ to, styles, children }) => {
   return (
-    <ButtonMui
+    <Button
       component={Link}
       to={to}
       variant="contained"
@@ -14,13 +14,14 @@ const Button = ({ to, styles, children }) => {
         '&:hover': {
           background: '#6B6B6B',
           color: 'white',
+          transition: 'all 400ms ease',
         },
       }}
       style={styles}
     >
       {children}
-    </ButtonMui>
+    </Button>
   );
 };
 
-export default Button;
+export default CustomButton;

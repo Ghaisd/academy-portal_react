@@ -1,33 +1,34 @@
 import { Box, Container } from '@mui/system';
 import Grid from '@mui/system/Unstable_Grid/Grid';
-import { Link, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import CustomLink from './UI/CustomLink';
+import CustomIcon from './UI/CustomIcon';
 
 const Footer = () => {
   return (
-    <Box bgcolor="#474a48" px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 10 }}>
-      <Container maxWidth="xxl">
+    <Box bgcolor="#474a48" mt={8} pb={4}>
+      <Container maxWidth="xl">
         <Grid container spacing={20} borderBottom={1}>
-          <Grid item xs={12} sm={4}>
+          <Grid>
             <Box mr="4rem">
               <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
                 <CustomLink to="/">
                   IKOMM ACADEMY
                 </CustomLink>
               </Typography>
-              <Typography pt="1rem">
+              <Typography pt={2}>
                 Talent finnes overalt for den som leter.
               </Typography>
               <Box
                 component="img"
                 src="/images/Logo_Transparent_hvit.png"
                 alt="logo"
-                mt="3rem"
-                width="300px"
+                mt={6}
+                width={0.8}
               />
             </Box>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid ml={12}>
             <Typography variant="h4" borderBottom={1}>Sidemeny</Typography>
             <Box>
               <CustomLink to="/Home">Hjem</CustomLink>
@@ -37,23 +38,19 @@ const Footer = () => {
               <CustomLink to="/Contact">Kontaktinfo</CustomLink>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid ml={24}>
             <Typography variant="h4" borderBottom={1}>Kontaktinfo</Typography>
             <Box>
               <Typography variant="h6">94970223</Typography>
               <Typography variant="h6">academy@ikomm.no</Typography>
-              <Box mt="1rem">
-                <Link ml="2rem" color="#fff" borderRadius="5%" fontSize="2.2rem" href="https://www.facebook.com/ikommas/" target="_blank" rel="noreferrer">
-                  <i className="bi bi-facebook" />
-                </Link>
-                <Link ml="2rem" color="#fff" borderRadius="5%" fontSize="2.2rem" href="https://linkedin.com" target="_blank" rel="noreferrer">
-                  <i className="bi bi-linkedin" />
-                </Link>
+              <Box>
+                <CustomIcon href='"https://www.facebook.com/ikommas/' iconType="bi bi-facebook" />
+                <CustomIcon href="https://linkedin.com/company/ikomm" iconType="bi bi-linkedin" />
               </Box>
             </Box>
           </Grid>
         </Grid>
-        <Typography textAlign="center" mt="3rem" pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}>
+        <Typography textAlign="center" mt={8} pt={6}>
           Copyright &copy;2022 IKOMM-ACADEMY
         </Typography>
       </Container>

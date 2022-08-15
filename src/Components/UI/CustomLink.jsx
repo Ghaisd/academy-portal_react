@@ -15,7 +15,7 @@ const CustomLink = ({ to, children, ...props }) => {
         color: 'white',
       },
       'a:hover': {
-        color: 'grey',
+        color: '#909590',
         transition: 'all 400ms ease',
       },
     }}

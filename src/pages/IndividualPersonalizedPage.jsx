@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Box } from '@mui/system';
-import { Link, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import participants from '../Data/participants';
-import Button from '../Components/UI/Button';
+import CustomButton from '../Components/UI/CustomButton';
+import CustomIcon from '../Components/UI/CustomIcon';
 
 const IndividualPersonalizedPage = () => {
   const [participant, setParticipant] = useState({});
@@ -15,7 +16,7 @@ const IndividualPersonalizedPage = () => {
   }, [id, setParticipant]);
 
   return (
-    <Box p="12rem 0 18rem" display="flex" alignItems="center" justifyContent="center" gap="12rem">
+    <Box py={30} display="flex" alignItems="center" justifyContent="center" gap={24}>
       <Box>
         <Typography color="#f75023" variant="h4">Hallo, jeg er</Typography>
         <br />
@@ -25,17 +26,13 @@ const IndividualPersonalizedPage = () => {
         <br />
         <Typography variant="h5" color="#a09dab">{participant.ShortInfo}</Typography>
         <br />
-        <Box mb="1rem">
-          <Link ml="0.5rem" bgcolor="white" color="#000" borderRadius="5%" fontSize="2.2rem" href="https://linkedin.com" target="_blank" rel="noreferrer">
-            <i className="bi bi-linkedin" />
-          </Link>
-          <Link ml="2rem" bgcolor="white" color="#000" borderRadius="5%" fontSize="2.2rem" href={participant.GithubLink} target="_blank" rel="noreferrer">
-            <i className="bi bi-github" />
-          </Link>
+        <Box mb={2}>
+          <CustomIcon href="https://linkedin.com" iconType="bi bi-linkedin" />
+          <CustomIcon href={participant.GithubLink} iconType="bi bi-github" />
         </Box>
-        <Button to="/#" styles={{ backgroundColor: '#f75023', borderRadius: '30px' }}>
+        <CustomButton to="/#" styles={{ backgroundColor: '#f75023', borderRadius: 20 }}>
           Last ned CV
-        </Button>
+        </CustomButton>
       </Box>
       <Box
         component="img"
