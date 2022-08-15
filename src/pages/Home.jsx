@@ -1,4 +1,4 @@
-import HeaderSection from './Home/HeaderSection';
+import Header from './Home/HeaderSection';
 // eslint-disable-next-line import/no-cycle
 import CategoriesSection from './Home/CategoriesSection';
 import ArticlesSection from './Home/ArticlesSection';
@@ -8,7 +8,7 @@ import TestimonialsSection from './Home/TestimonialsSection';
 const Home = () => {
   return (
     <>
-      <HeaderSection />
+      <Header />
       <CategoriesSection />
       <ArticlesSection />
       <FaqsSection />

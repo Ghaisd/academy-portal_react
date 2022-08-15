@@ -1,4 +1,5 @@
 import { Box } from '@mui/system';
+// eslint-disable-next-line import/no-cycle
 import Article from '../Components/Article';
 import articles from '../Data/articles';
 

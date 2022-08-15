@@ -3,6 +3,8 @@ import {
 } from '@mui/material';
 import CustomLink from './UI/CustomLink';
 import HideOnScroll from './UI/HideOnScroll';
+// eslint-disable-next-line import/no-cycle
+import { routes } from '../App';
 
 const Navbar = () => {
   return (
@@ -15,11 +17,11 @@ const Navbar = () => {
             </CustomLink>
           </Typography>
           <Stack direction="row" spacing={7}>
-            <CustomLink to="/Home">Hjem</CustomLink>
-            <CustomLink to="/Articles">Siste nytt</CustomLink>
-            <CustomLink to="/About">Kandidatene</CustomLink>
-            <CustomLink to="/AcademyTV">Academy TV</CustomLink>
-            <CustomLink to="/Contact">Kontaktinfo</CustomLink>
+            <CustomLink to={routes.Home}>Hjem</CustomLink>
+            <CustomLink to={routes.Articles}>Siste nytt</CustomLink>
+            <CustomLink to={routes.About}>Kandidatene</CustomLink>
+            <CustomLink to={routes.AcademyTV}>Academy TV</CustomLink>
+            <CustomLink to={routes.Contact}>Kontaktinfo</CustomLink>
           </Stack>
         </Toolbar>
       </AppBar>

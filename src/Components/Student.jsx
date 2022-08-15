@@ -1,6 +1,8 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import CustomIcon from './UI/CustomIcon';
+// eslint-disable-next-line import/no-cycle
+import { routes } from '../App';
 
 const Student = ({
   src, studentName, smallInfo, GithubLink, LinkedinLink,
@@ -15,7 +17,7 @@ const Student = ({
           height="300px"
         />
         <Box display="flex" flexDirection="column" justifyContent="center">
-          <CustomIcon href={`/About/${studentName}`} iconType="bi bi-file-earmark-person" />
+          <CustomIcon href={`${routes.About}/${studentName}`} iconType="bi bi-file-earmark-person" />
           <CustomIcon href={LinkedinLink} iconType="bi bi-linkedin" />
           <CustomIcon href={GithubLink} iconType="bi bi-github" />
         </Box>

@@ -3,6 +3,8 @@ import Grid from '@mui/system/Unstable_Grid/Grid';
 import { Typography } from '@mui/material';
 import CustomLink from './UI/CustomLink';
 import CustomIcon from './UI/CustomIcon';
+// eslint-disable-next-line import/no-cycle
+import { routes } from '../App';
 
 const Footer = () => {
   return (
@@ -31,11 +33,11 @@ const Footer = () => {
           <Grid ml={12}>
             <Typography variant="h4" borderBottom={1}>Sidemeny</Typography>
             <Box>
-              <CustomLink to="/Home">Hjem</CustomLink>
-              <CustomLink to="/Articles">Siste nytt</CustomLink>
-              <CustomLink to="/About">Kandidatene</CustomLink>
-              <CustomLink to="/AcademyTV">Academy TV</CustomLink>
-              <CustomLink to="/Contact">Kontaktinfo</CustomLink>
+              <CustomLink to={routes.Home}>Hjem</CustomLink>
+              <CustomLink to={routes.Articles}>Siste nytt</CustomLink>
+              <CustomLink to={routes.About}>Kandidatene</CustomLink>
+              <CustomLink to={routes.AcademyTV}>Academy TV</CustomLink>
+              <CustomLink to={routes.Contact}>Kontaktinfo</CustomLink>
             </Box>
           </Grid>
           <Grid ml={24}>
