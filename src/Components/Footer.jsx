@@ -6,7 +6,7 @@ import CustomIcon from './UI/CustomIcon';
 
 const Footer = () => {
   return (
-    <Box bgcolor="#474a48" mt={8} pb={4}>
+    <Box bgcolor="#474a48" py={2}>
       <Container maxWidth="xl">
         <Grid container spacing={20} borderBottom={1}>
           <Grid>

@@ -8,7 +8,7 @@ const {
   headerSectionTextP,
 } = staticTextHome;
 
-const Header = () => {
+const HeaderSection = () => {
   return (
     <Box
       height={800}
@@ -33,4 +33,4 @@ const Header = () => {
     </Box>
   );
 };
-export default Header;
+export default HeaderSection;

@@ -14,13 +14,13 @@ const Achievement = ({ iconAchievement, nrOfAchievement, finishedAchievement }) 
           p: 1,
           borderRadius: 2,
           display: 'inline-block',
-          mb: 4,
+          mb: 2,
           fontSize: 32,
         },
       }}
     >
       <i className={iconAchievement} />
-      <Typography variant="h4" pb={1}>{nrOfAchievement}</Typography>
+      <Typography variant="h4">{nrOfAchievement}</Typography>
       <Typography variant="h5">{finishedAchievement}</Typography>
     </Box>
   );
