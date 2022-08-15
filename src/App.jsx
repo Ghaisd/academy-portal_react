@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar';
+// eslint-disable-next-line import/no-cycle
 import Home from './pages/Home';
 import Articles from './pages/Articles';
 import About from './pages/About';
